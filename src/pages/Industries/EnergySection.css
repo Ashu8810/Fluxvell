@@ -1,0 +1,456 @@
+/* Energy Section - Premium Liquid-Glass UI */
+.energy-section {
+  background: #0b1120; /* Deep navy foundation */
+  color: #f8fafc;
+  padding: 6rem 2rem;
+  margin: 0 -2rem; /* Negate wrapper padding to span full width if needed, or keep contained */
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 100px rgba(2, 6, 23, 0.8);
+}
+
+.energy-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.energy-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography */
+.energy-heading-1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.energy-heading-2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.energy-heading-3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #f8fafc;
+}
+
+.energy-text-lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.energy-text-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.text-white { color: #ffffff !important; }
+.text-white-muted { color: #cbd5e1 !important; }
+.text-green { color: #34d399; }
+.text-blue { color: #38bdf8; }
+.text-amber { color: #fbbf24; }
+.text-indigo { color: #818cf8; }
+.text-center { text-align: center; }
+
+/* Buttons & Badges */
+.energy-badge {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.energy-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.energy-btn-primary:hover {
+  background: #7dd3fc;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+}
+
+.energy-btn-primary.large {
+  padding: 1rem 3rem;
+  font-size: 1.125rem;
+}
+
+/* Glass Panels */
+.energy-glass-panel {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.energy-card {
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.energy-card.hover-glow:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+/* Section Blocks */
+.energy-section-block {
+  margin-top: 6rem;
+}
+
+/* Hero Section */
+.energy-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.energy-hero-trust {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.energy-trust-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.energy-trust-label svg {
+  color: #38bdf8;
+}
+
+/* Abstract Visual */
+.energy-hero-visual {
+  height: 100%;
+  min-height: 400px;
+  position: relative;
+}
+
+.energy-glass-visual {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+.energy-node-center {
+  z-index: 2;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+.energy-orbit {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px dashed rgba(148, 163, 184, 0.3);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+
+.energy-node {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.energy-node.node-1 { top: 15%; left: 20%; border-color: rgba(139, 92, 246, 0.4); }
+.energy-node.node-2 { bottom: 20%; left: 25%; border-color: rgba(245, 158, 11, 0.4); }
+.energy-node.node-3 { top: 30%; right: 20%; border-color: rgba(16, 185, 129, 0.4); }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Dashboard */
+.energy-dashboard-wrapper {
+  margin-top: -2rem; /* Pull up over hero slightly */
+  z-index: 10;
+  position: relative;
+}
+
+.dashboard-panel {
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  padding-bottom: 1rem;
+}
+
+.demo-data-badge {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(148, 163, 184, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.timestamp::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #38bdf8;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.energy-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.energy-dash-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+.energy-dash-card.wide {
+  grid-column: span 2;
+}
+
+.energy-dash-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.energy-dash-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* Grids */
+.energy-overview-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.energy-overview-grid, .energy-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.energy-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.energy-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card-icon {
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+.card-icon.warning {
+  color: #f59e0b;
+}
+.panel-icon {
+  margin-bottom: 1rem;
+  color: #818cf8;
+}
+
+/* Flowchart Visuals */
+.energy-arch-flow {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.arch-node {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+.arch-node.highlight {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+.arch-arrow {
+  color: #475569;
+}
+
+.energy-ecosystem-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  overflow-x: auto;
+  gap: 1rem;
+}
+.flow-node {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-weight: 500;
+  position: relative;
+}
+.flow-node:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #475569;
+}
+.flow-node.highlight {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+}
+
+/* Trust Strip */
+.energy-trust-strip {
+  margin: 6rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.trust-item {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* CTA */
+.cta-panel {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .energy-hero { grid-template-columns: 1fr; }
+  .energy-dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .energy-dash-card.wide { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  .energy-overview-grid, .energy-challenges-grid, .energy-capabilities-grid, .energy-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .energy-dashboard-grid { grid-template-columns: 1fr; }
+  .energy-dash-card.wide { grid-column: span 1; }
+  .energy-ecosystem-flow { flex-direction: column; padding: 2rem; }
+  .flow-node:not(:last-child)::after {
+    content: '↓';
+    right: auto;
+    bottom: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
