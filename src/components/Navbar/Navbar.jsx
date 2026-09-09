@@ -59,15 +59,15 @@ function Navbar() {
 
           <ul className="nav-links desktop-only">
             <li className="dropdown">
-              <a href="#">Solutions <ChevronDown size={14} /></a>
+              <a href="#" onClick={(e) => e.preventDefault()}>Solutions <ChevronDown size={14} /></a>
               <SolutionsMenu />
             </li>
             <li className="dropdown">
-              <a href="#">Products <ChevronDown size={14} /></a>
+              <a href="#" onClick={(e) => e.preventDefault()}>Products <ChevronDown size={14} /></a>
               <ProductsMenu />
             </li>
             <li className="dropdown">
-              <a href="#">Industries <ChevronDown size={14} /></a>
+              <a href="#" onClick={(e) => e.preventDefault()}>Industries <ChevronDown size={14} /></a>
               <IndustriesMenu />
             </li>
             <li><Link to="/partners" className={location.pathname === '/partners' ? 'active' : ''}>Partners</Link></li>
@@ -224,7 +224,7 @@ function Navbar() {
                     <span>Discover external exposures</span>
                   </div>
                 </a>
-                <a href="#" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
+                <a href="#" onClick={(e) => { e.preventDefault(); setMobileMenuOpen(false); }} className="mobile-rich-item">
                   <Shield size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
                   <div className="mobile-rich-text">
                     <strong>Continuous Pentesting</strong>
