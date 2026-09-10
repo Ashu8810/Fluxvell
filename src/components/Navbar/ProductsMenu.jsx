@@ -14,40 +14,40 @@ export function ProductsMenu() {
           </Link>
           <ul style={{ gap: '0.25rem' }}>
             <li>
-              <a href="/products/third-party-risk-management#brand-reputation" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <Radar size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
+              <Link to="/products/third-party-risk-management/brand-reputation" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none', borderRadius: '8px', transition: 'background-color 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.02)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+                <Globe size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Brand Reputation Management</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Protect your brand from digital threats</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/third-party-risk-management#operational-risk" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/third-party-risk-management/operational-risk" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <ServerCrash size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Operational Risk Management</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Monitor operational risks and resilience</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/third-party-risk-management#dark-web" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/third-party-risk-management/dark-web" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <FileSearch size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Dark Web Surveillance</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Monitor underground threats</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/third-party-risk-management#cyber-insurance" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/third-party-risk-management/cyber-insurance" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <BadgeCheck size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Cyber Insurance</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Data-driven insights for decisions</span>
                 </div>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

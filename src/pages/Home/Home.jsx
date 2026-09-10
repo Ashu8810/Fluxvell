@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Globe } from '../../components/ui/CobeGlobe';
 import { RiskProblem } from './RiskProblem';
 import { RealData } from './RealData';
+import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import './Home.css';
 
 const markers = [
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <div className="home-page">
       <section className="home-hero">
-        <div className="home-hero-content">
+        <ScrollReveal className="home-hero-content" delay={0.1}>
           <h1 className="home-hero-title">See the risk beyond your walls.</h1>
           <p className="home-hero-subtitle">
             Fluxvell continuously assesses your third parties and automates penetration testing—so you can find vulnerabilities earlier, prioritize what matters, and act with confidence.
@@ -38,21 +39,23 @@ export default function Home() {
             </button>
             <button className="home-btn-secondary">Explore the platform</button>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="home-hero-globe">
-          <Globe
-            markers={markers}
-            arcs={arcs}
-            markerColor={[1, 0.4, 0]}
-            baseColor={[1, 1, 1]}
-            arcColor={[1, 0.4, 0]}
-            glowColor={[1, 1, 1]}
-            dark={0}
-            mapBrightness={10}
-            markerSize={0.035}
-            markerElevation={0.015}
-          />
+          <ScrollReveal delay={0.3} direction="up" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+            <Globe
+              markers={markers}
+              arcs={arcs}
+              markerColor={[1, 0.4, 0]}
+              baseColor={[1, 1, 1]}
+              arcColor={[1, 0.4, 0]}
+              glowColor={[1, 1, 1]}
+              dark={0}
+              mapBrightness={10}
+              markerSize={0.035}
+              markerElevation={0.015}
+            />
+          </ScrollReveal>
         </div>
       </section>
 

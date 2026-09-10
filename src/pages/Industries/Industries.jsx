@@ -18,6 +18,7 @@ import HospitalitySection from './HospitalitySection';
 import TelecomSection from './TelecomSection';
 import CriticalInfrastructureSection from './CriticalInfrastructureSection';
 import MediaEntertainmentSection from './MediaEntertainmentSection';
+import { ScrollReveal } from '../../components/ui/ScrollReveal';
 
 const Industries = () => {
   const { industryId } = useParams();
@@ -308,9 +309,9 @@ const Industries = () => {
 
   return (
     <div className="ind-page">
-      <div className="ind-content-wrapper">
+      <ScrollReveal className="ind-content-wrapper">
         {renderIndustrySection()}
-      </div>
+      </ScrollReveal>
 
       <Footer />
     </div>

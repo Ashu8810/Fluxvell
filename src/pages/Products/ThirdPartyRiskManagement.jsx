@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { 
   Shield, 
   CheckCircle, 
@@ -17,12 +17,17 @@ import './ThirdPartyRiskManagement.css';
 import { Footer } from '../../components/Footer/Footer';
 
 export default function ThirdPartyRiskManagement() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const { sectionId } = useParams();
 
   useEffect(() => {
-    if (window.location.hash) {
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else if (window.location.hash) {
       const id = window.location.hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
@@ -30,8 +35,10 @@ export default function ThirdPartyRiskManagement() {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       }
+    } else {
+      window.scrollTo(0, 0);
     }
-  }, []);
+  }, [sectionId]);
 
   return (
     <div className="vrm-page">
@@ -228,243 +235,6 @@ export default function ThirdPartyRiskManagement() {
           </div>
         </section>
 
-        {/* EXPANDED RISK CATEGORIES - HEADER */}
-        <section className="vrm-section" style={{ paddingBottom: '2rem' }}>
-          <h2 className="vrm-heading-2" style={{textAlign: 'center'}}>Comprehensive Third-Party Risk Ecosystem</h2>
-        </section>
-
-        {/* 1. Brand Reputation Management (DARK) */}
-        <section id="brand-reputation" style={{ background: '#0f172a', padding: '6rem 0', width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-          <div className="vrm-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
-            <div style={{ marginBottom: '4rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '1rem', margin: '0 0 1rem 0' }}>
-                <Globe style={{ color: '#8b5cf6' }} size={48} />
-                <span>Brand Reputation Management</span>
-              </h3>
-              <p style={{ color: '#94a3b8', fontSize: '1.25rem', maxWidth: '800px', lineHeight: 1.6, margin: 0 }}>
-                Protect your brand equity from supply chain contamination. A failure by a third party is increasingly perceived by consumers and regulators as a failure by your organization.
-              </p>
-            </div>
-            
-            <div className="vrm-bento-grid-premium" style={{ '--orb-color': 'rgba(139, 92, 246, 0.15)' }}>
-              {/* Hero Card - Phase 1 */}
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-hero vrm-accent-purple-premium">
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', padding: '2rem' }}>
-<div className="vrm-bento-title-small" style={{ textAlign: 'center',  color: '#c4b5fd', marginBottom: '1rem' }}>Phase 1: Proactive Monitoring</div>
-<h4 style={{ textAlign: 'center', color: '#fff', fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: 1.2}}>ESG & Ethical Tracking</h4>
-<p style={{ textAlign: 'center', margin: '0 auto', color: '#e2e8f0', fontSize: '1.15rem', lineHeight: 1.6}}>Don't wait for the news to break. We establish a continuous scanning perimeter around your entire supply chain to detect early warning signs of ESG violations, predatory labor practices, and ethical risks.</p>
-</div>
-              </div>
-
-              {/* Side Cards - Phase 2 & 3 */}
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-side-top vrm-accent-purple-premium">
-                <div className="vrm-bento-icon-wrapper" style={{background: 'rgba(139, 92, 246, 0.2)', borderColor: 'rgba(255,255,255,0.1)'}}>
-                  <BarChart size={24} color="#a78bfa" />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#a78bfa' }}>Phase 2: Sentiment Analysis</div>
-                <div className="vrm-bento-title-main" style={{ color: '#ffffff' }}>AI-Driven Perception</div>
-                <div className="vrm-bento-desc" style={{ color: '#94a3b8' }}>
-                  Advanced NLP algorithms analyze millions of data points to determine how the public perceives your relationship with a specific vendor. If public sentiment turns toxic, you are the first to know.
-                </div>
-              </div>
-              
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-side-bottom vrm-accent-purple-premium">
-                <div className="vrm-bento-icon-wrapper" style={{background: 'rgba(139, 92, 246, 0.2)', borderColor: 'rgba(255,255,255,0.1)'}}>
-                  <Zap size={24} color="#a78bfa" />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#a78bfa' }}>Phase 3: Rapid Remediation</div>
-                <div className="vrm-bento-title-main" style={{ color: '#ffffff' }}>Automated Decoupling</div>
-                <div className="vrm-bento-desc" style={{ color: '#94a3b8' }}>
-                  When a crisis hits, speed is everything. Execute pre-planned decoupling strategies, instantly revoke access rights, and align internal PR teams with unified crisis communication templates.
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-footer vrm-accent-purple-premium">
-                <ul className="vrm-bento-feature-list" style={{ color: '#e2e8f0' }}>
-                  <li><CheckCircle size={20} color="#a78bfa"/> Global News Scraping</li>
-                  <li><CheckCircle size={20} color="#a78bfa"/> Regulatory Watchlists</li>
-                  <li><CheckCircle size={20} color="#a78bfa"/> Social Sentiment Alerts</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 2. Operational Risk Management (WHITE) */}
-        <section id="operational-risk" style={{ background: '#f4f7f9', padding: '6rem 0', width: '100vw', marginLeft: 'calc(-50vw + 50%)', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
-          <div className="vrm-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
-            <div style={{ marginBottom: '4rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '1rem', margin: '0 0 1rem 0' }}>
-                <Settings style={{ color: '#3b82f6' }} size={48} />
-                <span>Operational Risk Management</span>
-              </h3>
-              <p style={{ color: '#475569', fontSize: '1.25rem', maxWidth: '800px', lineHeight: 1.6, margin: 0 }}>
-                Ensure business continuity by treating external dependencies with the same rigor as internal operations. Failures at a third-party level directly translate into your operational downtime.
-              </p>
-            </div>
-            
-            <div className="vrm-bento-grid-premium" style={{ '--orb-color': 'rgba(59, 130, 246, 0.15)' }}>
-              {/* Hero Card - Phase 1 */}
-              <div className="vrm-bento-item vrm-bento-hero vrm-accent-blue-premium">
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', padding: '2rem' }}>
-<div className="vrm-bento-title-small" style={{ textAlign: 'center',  color: '#3b82f6', marginBottom: '1rem' }}>Phase 1: Dependency Mapping</div>
-<h4 style={{ textAlign: 'center', color: '#0f172a', fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: 1.2}}>Nth-Party Visibility</h4>
-<p style={{ textAlign: 'center', margin: '0 auto', color: '#475569', fontSize: '1.15rem', lineHeight: 1.6}}>We trace your supply chain far beyond your direct vendors. By visualizing fourth-party and Nth-party dependencies, we uncover hidden concentration risks—such as when multiple key vendors rely on the same fragile downstream service.</p>
-</div>
-              </div>
-
-              {/* Side Cards - Phase 2 & 3 */}
-              <div className="vrm-bento-item vrm-bento-side-top vrm-accent-blue-premium">
-                <div className="vrm-bento-icon-wrapper">
-                  <ServerCrash size={24} />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#3b82f6' }}>Phase 2: Resilience Testing</div>
-                <div className="vrm-bento-title-main">Continuity Validation</div>
-                <div className="vrm-bento-desc">
-                  Don't assume your vendors are resilient. Our platform automates Business Continuity (BC) and Disaster Recovery (DR) testing scenarios tailored specifically for your most critical third-party integrations.
-                </div>
-              </div>
-              
-              <div className="vrm-bento-item vrm-bento-side-bottom vrm-accent-blue-premium">
-                <div className="vrm-bento-icon-wrapper">
-                  <RefreshCcw size={24} />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#3b82f6' }}>Phase 3: Disruption Response</div>
-                <div className="vrm-bento-title-main">Real-Time Failover</div>
-                <div className="vrm-bento-desc">
-                  When the inevitable happens, manual responses are too slow. Trigger automated real-time failover protocols and deploy contingency infrastructure the absolute second a third-party service degradation is confirmed.
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className="vrm-bento-item vrm-bento-footer vrm-accent-blue-premium">
-                <ul className="vrm-bento-feature-list">
-                  <li><CheckCircle size={20} color="#3b82f6"/> Visual Graph Trees</li>
-                  <li><CheckCircle size={20} color="#3b82f6"/> Cloud Concentration Alert</li>
-                  <li><CheckCircle size={20} color="#3b82f6"/> Supplier Geolocation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Dark Web Surveillance (DARK) */}
-        <section id="dark-web" style={{ background: '#0f172a', padding: '6rem 0', width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-          <div className="vrm-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
-            <div style={{ marginBottom: '4rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '1rem', margin: '0 0 1rem 0' }}>
-                <Eye style={{ color: '#0ea5e9' }} size={48} />
-                <span>Dark Web Surveillance</span>
-              </h3>
-              <p style={{ color: '#94a3b8', fontSize: '1.25rem', maxWidth: '800px', lineHeight: 1.6, margin: 0 }}>
-                Shift from periodic assessments to continuous intelligence. Detect if a vendor's security weakness has already been exploited before it becomes an attack vector against you.
-              </p>
-            </div>
-            
-            <div className="vrm-bento-grid-premium" style={{ '--orb-color': 'rgba(14, 165, 233, 0.15)' }}>
-              {/* Hero Card - Phase 1 */}
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-hero vrm-accent-cyan-premium">
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', padding: '2rem' }}>
-<div className="vrm-bento-title-small" style={{ textAlign: 'center',  color: '#7dd3fc', marginBottom: '1rem' }}>Phase 1: Continuous Scanning</div>
-<h4 style={{ textAlign: 'center', color: '#fff', fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: 1.2}}>24/7 Deep Web Crawling</h4>
-<p style={{ textAlign: 'center', margin: '0 auto', color: '#e2e8f0', fontSize: '1.15rem', lineHeight: 1.6}}>Threat actors don't operate on a schedule. Our intelligence engine continuously crawls Tor networks, criminal forums, paste sites, and ransomware leak blogs looking specifically for your vendors' compromised data.</p>
-</div>
-              </div>
-
-              {/* Side Cards - Phase 2 & 3 */}
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-side-top vrm-accent-cyan-premium">
-                <div className="vrm-bento-icon-wrapper" style={{background: 'rgba(14, 165, 233, 0.2)', borderColor: 'rgba(255,255,255,0.1)'}}>
-                  <ShieldAlert size={24} color="#38bdf8" />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#38bdf8' }}>Phase 2: Threat Validation</div>
-                <div className="vrm-bento-title-main" style={{ color: '#ffffff' }}>Signal vs. Noise</div>
-                <div className="vrm-bento-desc" style={{ color: '#94a3b8' }}>
-                  Not every leaked password is a crisis. We use a combination of machine learning heuristics and human intelligence analysts to filter out false positives and confirm if a vendor breach actively threatens your corporate network.
-                </div>
-              </div>
-              
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-side-bottom vrm-accent-cyan-premium">
-                <div className="vrm-bento-icon-wrapper" style={{background: 'rgba(14, 165, 233, 0.2)', borderColor: 'rgba(255,255,255,0.1)'}}>
-                  <Lock size={24} color="#38bdf8" />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#38bdf8' }}>Phase 3: Proactive Defense</div>
-                <div className="vrm-bento-title-main" style={{ color: '#ffffff' }}>Interrupt the Kill Chain</div>
-                <div className="vrm-bento-desc" style={{ color: '#94a3b8' }}>
-                  Identify threats before the vendor even knows they've been breached. Our system integrates with your IAM tools to automatically force password resets and lock API keys when third-party credentials surface online.
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className="vrm-bento-item vrm-bento-item-dark vrm-bento-footer vrm-accent-cyan-premium">
-                <ul className="vrm-bento-feature-list" style={{ color: '#e2e8f0' }}>
-                  <li><CheckCircle size={20} color="#38bdf8"/> Ransomware Leak Sites</li>
-                  <li><CheckCircle size={20} color="#38bdf8"/> Credential Dumps</li>
-                  <li><CheckCircle size={20} color="#38bdf8"/> Dark Web Forums</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 4. Cyber Insurance Alignment (WHITE) */}
-        <section id="cyber-insurance" style={{ background: '#f4f7f9', padding: '6rem 0', width: '100vw', marginLeft: 'calc(-50vw + 50%)', borderTop: '1px solid #e2e8f0' }}>
-          <div className="vrm-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
-            <div style={{ marginBottom: '4rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '1rem', margin: '0 0 1rem 0' }}>
-                <FileCheck style={{ color: '#10b981' }} size={48} />
-                <span>Cyber Insurance Alignment</span>
-              </h3>
-              <p style={{ color: '#475569', fontSize: '1.25rem', maxWidth: '800px', lineHeight: 1.6, margin: 0 }}>
-                Align your TPRM strategy with strict underwriting requirements. Demonstrate robust hygiene to insurers and ensure your entire vendor network maintains adequate liability coverage.
-              </p>
-            </div>
-            
-            <div className="vrm-bento-grid-premium" style={{ '--orb-color': 'rgba(16, 185, 129, 0.15)' }}>
-              {/* Hero Card - Phase 1 */}
-              <div className="vrm-bento-item vrm-bento-hero vrm-accent-emerald-premium">
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', padding: '2rem' }}>
-<div className="vrm-bento-title-small" style={{ textAlign: 'center',  color: '#10b981', marginBottom: '1rem' }}>Phase 1: Risk Quantification</div>
-<h4 style={{ textAlign: 'center', color: '#0f172a', fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: 1.2}}>Financial Exposure Modeling</h4>
-<p style={{ textAlign: 'center', margin: '0 auto', color: '#475569', fontSize: '1.15rem', lineHeight: 1.6}}>Move far beyond subjective compliance questionnaires. We use data-driven, actuarial models (such as FAIR) to express third-party cyber risk in exact financial terms (dollars and cents) that the board understands.</p>
-</div>
-              </div>
-
-              {/* Side Cards - Phase 2 & 3 */}
-              <div className="vrm-bento-item vrm-bento-side-top vrm-accent-emerald-premium">
-                <div className="vrm-bento-icon-wrapper">
-                  <BadgeCheck size={24} />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#10b981' }}>Phase 2: Contractual Verification</div>
-                <div className="vrm-bento-title-main">Vendor Liability Audits</div>
-                <div className="vrm-bento-desc">
-                  Automated ingestion and verification of insurance certificates to guarantee that all high-risk vendors maintain and renew adequate third-party cyber liability coverage before you sign a contract.
-                </div>
-              </div>
-              
-              <div className="vrm-bento-item vrm-bento-side-bottom vrm-accent-emerald-premium">
-                <div className="vrm-bento-icon-wrapper">
-                  <FileText size={24} />
-                </div>
-                <div className="vrm-bento-title-small" style={{ color: '#10b981' }}>Phase 3: Policy Optimization</div>
-                <div className="vrm-bento-title-main">Underwriting Proof Generation</div>
-                <div className="vrm-bento-desc">
-                  When it's time to renew your own policy, stop relying on spreadsheets. Instantly export comprehensive, audit-ready trails of your TPRM hygiene to negotiate better premiums and secure the most favorable underwriting terms.
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className="vrm-bento-item vrm-bento-footer vrm-accent-emerald-premium">
-                <ul className="vrm-bento-feature-list">
-                  <li><CheckCircle size={20} color="#10b981"/> Value-at-Risk (VaR)</li>
-                  <li><CheckCircle size={20} color="#10b981"/> FAIR Methodology</li>
-                  <li><CheckCircle size={20} color="#10b981"/> Executive Dashboards</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-        
         {/* FAQ */}
         <section className="vrm-section">
           <h2 className="vrm-heading-2" style={{textAlign: 'center'}}>Frequently Asked Questions</h2>
