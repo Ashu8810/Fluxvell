@@ -153,28 +153,28 @@ function Navbar() {
               <div className="mobile-rich-list">
                 <div className="mobile-dropdown-section-title">Third-Party Risk Management</div>
                 <Link to="/products/third-party-risk-management/brand-reputation" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <Globe size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Brand Reputation Management</strong>
                     <span>Protect your brand from digital threats</span>
                   </div>
                 </Link>
                 <Link to="/products/third-party-risk-management/operational-risk" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <ServerCrash size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ServerCrash size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Operational Risk Management</strong>
                     <span>Monitor operational risks and resilience</span>
                   </div>
                 </Link>
                 <Link to="/products/third-party-risk-management/dark-web" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <FileSearch size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><FileSearch size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Dark Web Surveillance</strong>
                     <span>Monitor underground threats</span>
                   </div>
                 </Link>
                 <Link to="/products/third-party-risk-management/cyber-insurance" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <BadgeCheck size={18} style={{ color: '#0ea5e9', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><BadgeCheck size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Cyber Insurance</strong>
                     <span>Data-driven insights for decisions</span>
@@ -183,49 +183,49 @@ function Navbar() {
 
                 <div className="mobile-dropdown-section-title" style={{ color: '#f97316', marginTop: '0.5rem' }}>Autonomous Pentesting</div>
                 <a href="/products/autonomous-pentesting#web-app-pentesting" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <Globe size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Web App Pentesting</strong>
                     <span>Vulnerability discovery for web apps</span>
                   </div>
                 </a>
                 <a href="/products/autonomous-pentesting#api-pentesting" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <Zap size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Zap size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>API Pentesting</strong>
                     <span>Secure APIs against modern threats</span>
                   </div>
                 </a>
                 <a href="/products/autonomous-pentesting#mcp-pentesting" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <ShieldAlert size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ShieldAlert size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>MCP Pentesting</strong>
                     <span>Continuous validation for MCPs</span>
                   </div>
                 </a>
                 <a href="/products/autonomous-pentesting#ai-vs-ai" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <Target size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Target size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>AI vs AI</strong>
                     <span>Defend against AI-driven attacks</span>
                   </div>
                 </a>
                 <a href="/products/autonomous-pentesting#network-pentesting" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <Lock size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Lock size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Network Pentesting</strong>
                     <span>Identify infrastructure weaknesses</span>
                   </div>
                 </a>
                 <a href="/products/autonomous-pentesting#external-pentesting" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
-                  <Key size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Key size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>External Pentesting</strong>
                     <span>Discover external exposures</span>
                   </div>
                 </a>
                 <a href="#" onClick={(e) => { e.preventDefault(); setMobileMenuOpen(false); }} className="mobile-rich-item">
-                  <Shield size={18} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                  <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Shield size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Continuous Pentesting</strong>
                     <span>24/7 automated security testing</span>
