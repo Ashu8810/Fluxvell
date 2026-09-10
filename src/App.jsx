@@ -15,6 +15,7 @@ import OperationalRisk from './pages/Products/ThirdPartyRiskManagement/Operation
 import DarkWebSurveillance from './pages/Products/ThirdPartyRiskManagement/DarkWebSurveillance';
 import CyberInsurance from './pages/Products/ThirdPartyRiskManagement/CyberInsurance';
 import AutonomousPentesting from './pages/Products/AutonomousPentesting';
+import MCPPentesting from './pages/Products/AutonomousPentesting/MCPPentesting';
 import Partners from './pages/Partners/Partners';
 import Industries from './pages/Industries/Industries';
 import './App.css';
@@ -43,6 +44,7 @@ function App() {
         <Route path="/products/third-party-risk-management/dark-web" element={<DarkWebSurveillance />} />
         <Route path="/products/third-party-risk-management/cyber-insurance" element={<CyberInsurance />} />
         <Route path="/products/autonomous-pentesting" element={<AutonomousPentesting />} />
+        <Route path="/products/autonomous-pentesting/mcp-pentesting" element={<MCPPentesting />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/industries" element={<Navigate to="/industries/technology" replace />} />
         <Route path="/industries/:industryId" element={<Industries />} />
