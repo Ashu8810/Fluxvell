@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { 
   Shield, 
   CheckCircle, 
@@ -9,27 +9,29 @@ import {
   Users, 
   Settings, 
   ArrowRight,
+  ArrowUpRight,
   ShieldCheck,
   AlertTriangle,
-  Eye, Globe, FileCheck, Radar, Zap, PieChart, ShieldAlert, BarChart, ServerCrash, RefreshCcw, Lock, Briefcase, BadgeCheck, FileSearch
+  Eye, Globe, FileCheck, Radar, Zap, PieChart, ShieldAlert, BarChart, BarChart3, Check, ServerCrash, RefreshCcw, Lock, Briefcase, BadgeCheck, FileSearch, Building2
 } from 'lucide-react';
 import './ThirdPartyRiskManagement.css';
 import CyberRadarHero from '../../components/ui/CyberRadarHero/CyberRadarHero';
 
 export default function ThirdPartyRiskManagement() {
   const { sectionId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
-    if (sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    } else if (window.location.hash) {
-      const id = window.location.hash.replace('#', '');
-      const element = document.getElementById(id);
+    const rawHash = location.hash ? location.hash.replace('#', '') : sectionId;
+    if (rawHash) {
+      const aliasMap = {
+        brm: 'brand-reputation',
+        orm: 'operational-risk',
+        dws: 'dark-web',
+        ci: 'cyber-insurance'
+      };
+      const targetId = aliasMap[rawHash.toLowerCase()] || rawHash;
+      const element = document.getElementById(targetId);
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -38,7 +40,7 @@ export default function ThirdPartyRiskManagement() {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [sectionId]);
+  }, [location, sectionId]);
 
   return (
     <div className="vrm-page">
@@ -48,10 +50,15 @@ export default function ThirdPartyRiskManagement() {
         titleLine1="Find what matters."
         titleLine2="Before attackers do."
         description="Fluxvell helps security teams continuously discover, monitor, and mitigate third-party risk across brand reputation, operational resilience, dark web threats, and cyber insurance."
-        primaryBtnText="Request a Demo"
+        primaryBtnText="Request Demo"
         primaryBtnLink="/contact"
-        secondaryBtnText="See How It Works"
-        secondaryBtnLink="#overview"
+        stages={[
+          { label: 'BRM', link: '#brand-reputation' },
+          { label: 'ORM', link: '#operational-risk' },
+          { label: 'DWS', link: '#dark-web' },
+          { label: 'CI', link: '#cyber-insurance' }
+        ]}
+        showLogos={false}
       />
 
       <div className="vrm-content-wrapper">
@@ -94,8 +101,293 @@ export default function ThirdPartyRiskManagement() {
           </div>
         </section>
 
+        {/* TOP SECTION HEADING */}
+        <section style={{ background: '#f8fafc', padding: '4rem 0 1rem 0', textAlign: 'center' }}>
+          <div className="vrm-content-wrapper">
+            <h2 className="vrm-heading-2" style={{ fontSize: '2.5rem', color: '#0f172a', margin: 0, fontWeight: 800, letterSpacing: '-0.03em' }}>
+              Comprehensive Third–Party Risk Ecosystem
+            </h2>
+          </div>
+        </section>
+
+        {/* ==========================================================================
+            4-PILLAR BENTO SECTIONS MATCHING THE 4 USER SCREENSHOTS
+            ========================================================================== */}
+
+        {/* PILLAR 1: BRAND REPUTATION MANAGEMENT (DARK THEME - SCREENSHOT 1) */}
+        <section id="brand-reputation" className="vrm-bento-phases-section vrm-bento-section-dark">
+          <div className="vrm-content-wrapper">
+            <div className="vrm-pillar-header">
+              <div className="vrm-pillar-title-row">
+                <Globe size={32} style={{ color: '#a855f7' }} />
+                <h2>Brand Reputation Management</h2>
+              </div>
+              <p className="vrm-pillar-subtitle">
+                Protect your brand equity from supply chain contamination. A failure by a third party is increasingly perceived by consumers and regulators as a failure by your organization.
+              </p>
+            </div>
+
+            <div className="vrm-bento-phases-grid">
+              <div className="vrm-bento-card-featured">
+                <div className="vrm-bento-phase-tag" style={{ color: '#c084fc' }}>PHASE 1: PROACTIVE MONITORING</div>
+                <h3 className="vrm-bento-title-lg">ESG &amp; Ethical Tracking</h3>
+                <p className="vrm-bento-desc-lg">
+                  Don't wait for the news to break. We establish a continuous scanning perimeter around your entire supply chain to detect early warning signs of ESG violations, predatory labor practices, and ethical risks.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(168, 85, 247, 0.15)', color: '#c084fc' }}>
+                  <BarChart3 size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#c084fc' }}>PHASE 2: SENTIMENT ANALYSIS</div>
+                <h4 className="vrm-bento-title-md">AI-Driven Perception</h4>
+                <p className="vrm-bento-desc-md">
+                  Advanced NLP algorithms analyze millions of data points to determine how the public perceives your relationship with a specific vendor. If public sentiment turns toxic, you are the first to know.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(168, 85, 247, 0.15)', color: '#c084fc' }}>
+                  <Zap size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#c084fc' }}>PHASE 3: RAPID REMEDIATION</div>
+                <h4 className="vrm-bento-title-md">Automated Decoupling</h4>
+                <p className="vrm-bento-desc-md">
+                  When a crisis hits, speed is everything. Execute pre-planned decoupling strategies, instantly revoke access rights, and align internal PR teams with unified crisis communication templates.
+                </p>
+              </div>
+
+              <div className="vrm-bento-banner-full">
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(168, 85, 247, 0.2)', color: '#c084fc' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Global News Scraping</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(168, 85, 247, 0.2)', color: '#c084fc' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Regulatory Watchlists</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(168, 85, 247, 0.2)', color: '#c084fc' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Social Sentiment Alerts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PILLAR 2: OPERATIONAL RISK MANAGEMENT (LIGHT THEME - SCREENSHOT 2) */}
+        <section id="operational-risk" className="vrm-bento-phases-section vrm-bento-section-light">
+          <div className="vrm-content-wrapper">
+            <div className="vrm-pillar-header">
+              <div className="vrm-pillar-title-row">
+                <Settings size={32} style={{ color: '#3b82f6' }} />
+                <h2>Operational Risk Management</h2>
+              </div>
+              <p className="vrm-pillar-subtitle">
+                Ensure business continuity by treating external dependencies with the same rigor as internal operations. Failures at a third-party level directly translate into your operational downtime.
+              </p>
+            </div>
+
+            <div className="vrm-bento-phases-grid">
+              <div className="vrm-bento-card-featured" style={{ borderColor: 'rgba(59, 130, 246, 0.2)' }}>
+                <div className="vrm-bento-phase-tag" style={{ color: '#3b82f6' }}>PHASE 1: DEPENDENCY MAPPING</div>
+                <h3 className="vrm-bento-title-lg">Nth-Party Visibility</h3>
+                <p className="vrm-bento-desc-lg">
+                  We trace your supply chain far beyond your direct vendors. By visualizing fourth-party and Nth-party dependencies, we uncover hidden concentration risks—such as when multiple key vendors rely on the same fragile downstream service.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' }}>
+                  <ServerCrash size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#3b82f6' }}>PHASE 2: RESILIENCE TESTING</div>
+                <h4 className="vrm-bento-title-md">Continuity Validation</h4>
+                <p className="vrm-bento-desc-md">
+                  Don't assume your vendors are resilient. Our platform automates Business Continuity (BC) and Disaster Recovery (DR) testing scenarios tailored specifically for your most critical third-party integrations.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' }}>
+                  <RefreshCcw size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#3b82f6' }}>PHASE 3: DISRUPTION RESPONSE</div>
+                <h4 className="vrm-bento-title-md">Real-Time Failover</h4>
+                <p className="vrm-bento-desc-md">
+                  When the inevitable happens, manual responses are too slow. Trigger automated real-time failover protocols and deploy contingency infrastructure the absolute second a third-party service degradation is confirmed.
+                </p>
+              </div>
+
+              <div className="vrm-bento-banner-full">
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(59, 130, 246, 0.12)', color: '#3b82f6' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Visual Graph Trees</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(59, 130, 246, 0.12)', color: '#3b82f6' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Cloud Concentration Alert</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(59, 130, 246, 0.12)', color: '#3b82f6' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Supplier Geolocation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PILLAR 3: DARK WEB SURVEILLANCE (DARK THEME - SCREENSHOT 3) */}
+        <section id="dark-web" className="vrm-bento-phases-section vrm-bento-section-dark">
+          <div className="vrm-content-wrapper">
+            <div className="vrm-pillar-header">
+              <div className="vrm-pillar-title-row">
+                <Eye size={32} style={{ color: '#06b6d4' }} />
+                <h2>Dark Web Surveillance</h2>
+              </div>
+              <p className="vrm-pillar-subtitle">
+                Shift from periodic assessments to continuous intelligence. Detect if a vendor's security weakness has already been exploited before it becomes an attack vector against you.
+              </p>
+            </div>
+
+            <div className="vrm-bento-phases-grid">
+              <div className="vrm-bento-card-featured">
+                <div className="vrm-bento-phase-tag" style={{ color: '#22d3ee' }}>PHASE 1: CONTINUOUS SCANNING</div>
+                <h3 className="vrm-bento-title-lg">24/7 Deep Web Crawling</h3>
+                <p className="vrm-bento-desc-lg">
+                  Threat actors don't operate on a schedule. Our intelligence engine continuously crawls Tor networks, criminal forums, paste sites, and ransomware leak blogs looking specifically for your vendors' compromised data.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(6, 182, 212, 0.15)', color: '#22d3ee' }}>
+                  <ShieldAlert size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#22d3ee' }}>PHASE 2: THREAT VALIDATION</div>
+                <h4 className="vrm-bento-title-md">Signal vs. Noise</h4>
+                <p className="vrm-bento-desc-md">
+                  Not every leaked password is a crisis. We use a combination of machine learning heuristics and human intelligence analysts to filter out false positives and confirm if a vendor breach actively threatens your corporate network.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(6, 182, 212, 0.15)', color: '#22d3ee' }}>
+                  <Lock size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#22d3ee' }}>PHASE 3: PROACTIVE DEFENSE</div>
+                <h4 className="vrm-bento-title-md">Interrupt the Kill Chain</h4>
+                <p className="vrm-bento-desc-md">
+                  Identify threats before the vendor even knows they've been breached. Our system integrates with your IAM tools to automatically force password resets and lock API keys when third-party credentials surface online.
+                </p>
+              </div>
+
+              <div className="vrm-bento-banner-full">
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(6, 182, 212, 0.2)', color: '#22d3ee' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Ransomware Leak Sites</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(6, 182, 212, 0.2)', color: '#22d3ee' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Credential Dumps</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(6, 182, 212, 0.2)', color: '#22d3ee' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Dark Web Forums</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PILLAR 4: CYBER INSURANCE ALIGNMENT (LIGHT THEME - SCREENSHOT 4) */}
+        <section id="cyber-insurance" className="vrm-bento-phases-section vrm-bento-section-light">
+          <div className="vrm-content-wrapper">
+            <div className="vrm-pillar-header">
+              <div className="vrm-pillar-title-row">
+                <FileCheck size={32} style={{ color: '#10b981' }} />
+                <h2>Cyber Insurance Alignment</h2>
+              </div>
+              <p className="vrm-pillar-subtitle">
+                Align your TPRM strategy with strict underwriting requirements. Demonstrate robust hygiene to insurers and ensure your entire vendor network maintains adequate liability coverage.
+              </p>
+            </div>
+
+            <div className="vrm-bento-phases-grid">
+              <div className="vrm-bento-card-featured" style={{ borderColor: 'rgba(16, 185, 129, 0.2)' }}>
+                <div className="vrm-bento-phase-tag" style={{ color: '#10b981' }}>PHASE 1: RISK QUANTIFICATION</div>
+                <h3 className="vrm-bento-title-lg">Financial Exposure Modeling</h3>
+                <p className="vrm-bento-desc-lg">
+                  Move far beyond subjective compliance questionnaires. We use data-driven, actuarial models (such as FAIR) to express third-party cyber risk in exact financial terms (dollars and cents) that the board understands.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#10b981' }}>
+                  <ShieldCheck size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#10b981' }}>PHASE 2: CONTRACTUAL VERIFICATION</div>
+                <h4 className="vrm-bento-title-md">Vendor Liability Audits</h4>
+                <p className="vrm-bento-desc-md">
+                  Automated ingestion and verification of insurance certificates to guarantee that all high-risk vendors maintain and renew adequate third-party cyber liability coverage before you sign a contract.
+                </p>
+              </div>
+
+              <div className="vrm-bento-card-side">
+                <div className="vrm-bento-icon-box" style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#10b981' }}>
+                  <FileText size={20} />
+                </div>
+                <div className="vrm-bento-phase-tag" style={{ color: '#10b981' }}>PHASE 3: POLICY OPTIMIZATION</div>
+                <h4 className="vrm-bento-title-md">Underwriting Proof Generation</h4>
+                <p className="vrm-bento-desc-md">
+                  When it's time to renew your own policy, stop relying on spreadsheets. Instantly export comprehensive, audit-ready trails of your TPRM hygiene to negotiate better premiums and secure the most favorable underwriting terms.
+                </p>
+              </div>
+
+              <div className="vrm-bento-banner-full">
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#10b981' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Value–at–Risk (VaR)</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#10b981' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>FAIR Methodology</span>
+                </div>
+                <div className="vrm-bento-banner-item">
+                  <div className="vrm-bento-banner-check" style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#10b981' }}>
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <span>Executive Dashboards</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* HOW IT WORKS / WORKFLOW */}
-        <section className="vrm-continuous-wrapper" style={{ background: '#0f172a', padding: '6rem 0' }}>
+        <section id="workflow" className="vrm-continuous-wrapper" style={{ background: '#0f172a', padding: '6rem 0' }}>
           <div className="vrm-content-wrapper vrm-continuous">
             <h2 className="vrm-heading-2" style={{ color: '#ffffff', textAlign: 'center' }}>From Onboarding to Ongoing Oversight</h2>
             
@@ -118,7 +410,7 @@ export default function ThirdPartyRiskManagement() {
         </section>
 
         {/* PRODUCT CAPABILITIES */}
-        <section className="vrm-section">
+        <section id="capabilities" className="vrm-section">
           <h2 className="vrm-heading-2" style={{textAlign: 'center'}}>Product Capabilities</h2>
           <div className="vrm-feature-bento" style={{ marginTop: '3rem' }}>
             {[
@@ -167,7 +459,7 @@ export default function ThirdPartyRiskManagement() {
         </section>
 
         {/* BENEFITS SECTION */}
-        <section className="vrm-section">
+        <section id="benefits" className="vrm-section">
           <h2 className="vrm-heading-2" style={{textAlign: 'center'}}>Why Choose Third-Party Risk Management?</h2>
           <div className="vrm-feature-bento" style={{ marginTop: '3rem' }}>
             {[
@@ -230,8 +522,11 @@ export default function ThirdPartyRiskManagement() {
               Join 500+ organizations using Axentro to manage third-party risks.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/contact" className="vrm-btn-primary">
-                Request Demo
+              <Link to="/contact" className="btn btn-primary btn-animated">
+                <span className="btn-text">REQUEST A DEMO</span>
+                <div className="btn-icon-wrapper">
+                  <ArrowUpRight size={16} />
+                </div>
               </Link>
             </div>
             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap', color: 'var(--vrm-secondary-text)', fontSize: '0.85rem' }}>

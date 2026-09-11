@@ -1106,3 +1106,346 @@
 .vrm-page .cyber-radar-card-badge {
   font-family: 'Bricolage Grotesque', sans-serif !important;
 }
+
+/* ==========================================================================
+   4-Card Bento Phase Section (Matching Reference Design)
+   ========================================================================== */
+.vrm-bento-phases-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.vrm-bento-phases-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.vrm-bento-card-featured {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.05), inset 0 0 60px rgba(139, 92, 246, 0.03);
+  grid-row: span 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.vrm-bento-card-featured::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.vrm-bento-card-side {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.vrm-bento-card-side:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+.vrm-bento-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.vrm-bento-phase-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #8b5cf6;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.vrm-bento-title-lg {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+
+.vrm-bento-title-md {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.65rem 0;
+  letter-spacing: -0.02em;
+}
+
+.vrm-bento-desc-lg {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+.vrm-bento-desc-md {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.vrm-bento-banner-full {
+  grid-column: span 2;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 1.75rem 3rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.vrm-bento-banner-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.vrm-bento-banner-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Dark Section Bento Variations (matching Brand Reputation & Dark Web Surveillance screenshots) */
+.vrm-bento-section-dark {
+  background: #0b101d !important;
+  color: #ffffff !important;
+  padding: 5rem 0 6rem 0;
+}
+
+.vrm-bento-section-dark .vrm-pillar-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 100px;
+}
+
+.vrm-bento-section-dark .vrm-pillar-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.vrm-bento-section-dark .vrm-pillar-header h2 {
+  color: #ffffff !important;
+  font-size: 2.75rem !important;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.vrm-bento-section-dark .vrm-pillar-subtitle {
+  color: #94a3b8 !important;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.vrm-bento-section-dark .vrm-bento-card-featured {
+  background: #121826 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+  padding: 3.5rem 2.5rem !important;
+}
+
+.vrm-bento-section-dark .vrm-bento-card-side {
+  background: #121826 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  padding: 2.25rem 2rem !important;
+}
+
+.vrm-bento-section-dark .vrm-bento-card-side:hover {
+  background: #161e30 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.vrm-bento-section-dark .vrm-bento-title-lg,
+.vrm-bento-section-dark .vrm-bento-title-md {
+  color: #ffffff !important;
+}
+
+.vrm-bento-section-dark .vrm-bento-desc-lg,
+.vrm-bento-section-dark .vrm-bento-desc-md {
+  color: #94a3b8 !important;
+}
+
+.vrm-bento-section-dark .vrm-bento-banner-full {
+  background: #121826 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  color: #f8fafc !important;
+  padding: 1.75rem 3rem !important;
+}
+
+.vrm-bento-section-dark .vrm-bento-banner-item {
+  color: #e2e8f0 !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Light Section Bento Variations (matching Operational Risk & Cyber Insurance screenshots) */
+.vrm-bento-section-light {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  padding: 5rem 0 6rem 0;
+}
+
+.vrm-bento-section-light .vrm-pillar-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 100px;
+}
+
+.vrm-bento-section-light .vrm-pillar-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.vrm-bento-section-light .vrm-pillar-header h2 {
+  color: #0f172a !important;
+  font-size: 2.75rem !important;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.vrm-bento-section-light .vrm-pillar-subtitle {
+  color: #475569 !important;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.vrm-bento-section-light .vrm-bento-card-featured {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03) !important;
+  padding: 3.5rem 2.5rem !important;
+}
+
+.vrm-bento-section-light .vrm-bento-card-side {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+  padding: 2.25rem 2rem !important;
+}
+
+.vrm-bento-section-light .vrm-bento-card-side:hover {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.vrm-bento-section-light .vrm-bento-title-lg,
+.vrm-bento-section-light .vrm-bento-title-md {
+  color: #0f172a !important;
+}
+
+.vrm-bento-section-light .vrm-bento-desc-lg,
+.vrm-bento-section-light .vrm-bento-desc-md {
+  color: #64748b !important;
+}
+
+.vrm-bento-section-light .vrm-bento-banner-full {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-radius: 20px !important;
+  color: #0f172a !important;
+  padding: 1.75rem 3rem !important;
+}
+
+.vrm-bento-section-light .vrm-bento-banner-item {
+  color: #334155 !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+  .vrm-bento-phases-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .vrm-bento-card-featured {
+    grid-row: auto;
+    padding: 3rem 1.75rem !important;
+  }
+
+  .vrm-bento-banner-full {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem !important;
+  }
+}
+
