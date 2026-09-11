@@ -4,7 +4,6 @@ import {
   ShieldAlert, Eye, Activity, FileText, Download, Calendar, ChevronDown, Server, Globe, Database,
   ArrowRight, BarChart2, AlertCircle, TrendingUp, Users, PieChart
 } from 'lucide-react';
-import { Footer } from '../../components/Footer/Footer';
 import './ExecutiveMonitoring.css';
 
 const ExecutiveMonitoring = () => {
@@ -296,7 +295,6 @@ const ExecutiveMonitoring = () => {
         </section>
 
       </div>
-      <Footer />
     </div>
   );
 };

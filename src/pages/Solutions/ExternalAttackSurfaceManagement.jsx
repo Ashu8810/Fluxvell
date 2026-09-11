@@ -10,7 +10,6 @@ import {
   FileText
 } from 'lucide-react';
 import './ExternalAttackSurfaceManagement.css';
-import { Footer } from '../../components/Footer/Footer';
 
 export default function ExternalAttackSurfaceManagement() {
   useEffect(() => {
@@ -266,7 +265,6 @@ export default function ExternalAttackSurfaceManagement() {
           </Link>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

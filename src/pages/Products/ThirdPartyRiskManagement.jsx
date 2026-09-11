@@ -14,7 +14,7 @@ import {
   Eye, Globe, FileCheck, Radar, Zap, PieChart, ShieldAlert, BarChart, ServerCrash, RefreshCcw, Lock, Briefcase, BadgeCheck, FileSearch
 } from 'lucide-react';
 import './ThirdPartyRiskManagement.css';
-import { Footer } from '../../components/Footer/Footer';
+import CyberRadarHero from '../../components/ui/CyberRadarHero/CyberRadarHero';
 
 export default function ThirdPartyRiskManagement() {
   const { sectionId } = useParams();
@@ -42,58 +42,22 @@ export default function ThirdPartyRiskManagement() {
 
   return (
     <div className="vrm-page">
-      <div className="vrm-content-wrapper">
-        
-        {/* HERO SECTION */}
-        <section className="vrm-section vrm-hero">
-          <div className="vrm-hero-content">
-            <h1 className="vrm-heading-1">
-              Assess and monitor vendor and supply chain risks
-            </h1>
-            
-            <div className="vrm-hero-actions" style={{ marginBottom: '1.5rem', marginTop: 0 }}>
-              <Link to="/contact" className="vrm-btn-primary">
-                Request Demo <ArrowRight size={18} style={{ marginLeft: '8px' }} />
-              </Link>
-            </div>
-            
-            <p className="vrm-hero-desc" style={{ marginTop: '0.5rem' }}>
-              Automated assessments, continuous monitoring, and actionable insights to protect your business.
-            </p>
-          </div>
-          
-          <div className="vrm-dashboard-mockup">
-            <div className="vrm-dashboard-base">
-              <div className="vrm-dash-header">
-                <span className="vrm-dash-title">Vendor Risk Intelligence</span>
-                <span className="vrm-hero-label" style={{marginBottom: 0}}>Live</span>
-              </div>
-              <div className="vrm-dash-grid">
-                <div className="vrm-dash-card">
-                  <span className="vrm-dash-label">Active Vendors</span>
-                  <span className="vrm-dash-metric">512</span>
-                </div>
-                <div className="vrm-dash-card">
-                  <span className="vrm-dash-label">Alerts (This week)</span>
-                  <span className="vrm-dash-metric" style={{color: '#ef4444'}}>24</span>
-                </div>
-                <div className="vrm-dash-card" style={{gridColumn: '1 / -1'}}>
-                  <span className="vrm-dash-label">Aggregate Risk Score</span>
-                  <div style={{height: '8px', background: '#e5e7eb', borderRadius: '4px', marginTop: '8px', overflow: 'hidden'}}>
-                    <div style={{height: '100%', width: '89%', background: 'var(--vrm-accent-primary)'}}></div>
-                  </div>
-                  <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '4px', fontSize: '0.75rem', fontWeight: 600}}>
-                    <span>77 / 100</span>
-                    <span style={{color: 'var(--vrm-accent-primary)'}}>Moderate exposure</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* CYBER RADAR HERO SECTION */}
+      <CyberRadarHero 
+        tag="THIRD-PARTY RISK MANAGEMENT"
+        titleLine1="Find what matters."
+        titleLine2="Before attackers do."
+        description="Fluxvell helps security teams continuously discover, monitor, and mitigate third-party risk across brand reputation, operational resilience, dark web threats, and cyber insurance."
+        primaryBtnText="Request a Demo"
+        primaryBtnLink="/contact"
+        secondaryBtnText="See How It Works"
+        secondaryBtnLink="#overview"
+        stages={[]}
+      />
 
+      <div className="vrm-content-wrapper">
         {/* OVERVIEW SECTION */}
-        <section className="vrm-section vrm-overview-section" style={{ background: '#f8fafc', padding: '6rem 0' }}>
+        <section id="overview" className="vrm-section vrm-overview-section" style={{ background: '#f8fafc', padding: '6rem 0' }}>
           <div className="vrm-content-wrapper vrm-overview">
             <div style={{ paddingRight: '2rem' }}>
               <h2 className="vrm-heading-2" style={{ color: '#0f172a', marginBottom: '1rem', fontSize: '2.5rem', lineHeight: '1.2' }}>Complete Visibility Into Your Vendor Ecosystem</h2>
@@ -279,7 +243,6 @@ export default function ThirdPartyRiskManagement() {
           </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

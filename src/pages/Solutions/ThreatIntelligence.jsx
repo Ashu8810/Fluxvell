@@ -4,7 +4,6 @@ import {
   ShieldAlert, Eye, Target, Activity, FileText,
   ChevronRight, ArrowRight, BarChart2, Globe, AlertCircle, Zap
 } from 'lucide-react';
-import { Footer } from '../../components/Footer/Footer';
 import './ThreatIntelligence.css';
 
 const ThreatIntelligence = () => {
@@ -327,7 +326,6 @@ const ThreatIntelligence = () => {
         </section>
 
       </div>
-      <Footer />
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, CheckCircle, ShieldAlert, Lock, ArrowRight } from 'lucide-react';
 import '../ThirdPartyRiskManagement.css';
-import { Footer } from '../../../components/Footer/Footer';
 
 export default function DarkWebSurveillance() {
   useEffect(() => {
@@ -153,7 +152,6 @@ export default function DarkWebSurveillance() {
           </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

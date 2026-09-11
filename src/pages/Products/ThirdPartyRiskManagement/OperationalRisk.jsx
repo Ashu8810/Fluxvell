@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Settings, CheckCircle, ServerCrash, RefreshCcw, ArrowRight } from 'lucide-react';
 import '../ThirdPartyRiskManagement.css';
-import { Footer } from '../../../components/Footer/Footer';
 
 export default function OperationalRisk() {
   useEffect(() => {
@@ -153,7 +152,6 @@ export default function OperationalRisk() {
           </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, CheckCircle, BarChart, Zap, ArrowRight } from 'lucide-react';
 import '../ThirdPartyRiskManagement.css';
-import { Footer } from '../../../components/Footer/Footer';
 
 export default function BrandReputation() {
   useEffect(() => {
@@ -152,7 +151,6 @@ export default function BrandReputation() {
           </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

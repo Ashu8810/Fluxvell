@@ -6,7 +6,6 @@ import {
   BarChart, Globe, LockKeyhole
 } from 'lucide-react';
 import './Industries.css';
-import { Footer } from '../../components/Footer/Footer';
 import EnergySection from './EnergySection';
 import AutomotiveSection from './AutomotiveSection';
 import FinanceSection from './FinanceSection';
@@ -309,11 +308,9 @@ const Industries = () => {
 
   return (
     <div className="ind-page">
-      <ScrollReveal className="ind-content-wrapper">
+      <div className="ind-content-wrapper">
         {renderIndustrySection()}
-      </ScrollReveal>
-
-      <Footer />
+      </div>
     </div>
   );
 };

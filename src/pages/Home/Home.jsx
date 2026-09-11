@@ -29,9 +29,9 @@ export default function Home() {
     <div className="home-page">
       <section className="home-hero">
         <ScrollReveal className="home-hero-content" delay={0.1}>
-          <h1 className="home-hero-title">See the risk beyond your walls.</h1>
+          <h1 className="home-hero-title">Continuous security. Clearer decisions.</h1>
           <p className="home-hero-subtitle">
-            Fluxvell continuously assesses your third parties and automates penetration testing—so you can find vulnerabilities earlier, prioritize what matters, and act with confidence.
+            Assess third-party risk, automate penetration testing, and prioritize the vulnerabilities that matter most.
           </p>
           <div className="home-hero-ctas">
             <button className="home-btn-primary">

@@ -1093,3 +1093,16 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #0f172a;
 }
+
+/* Font Override for Hero Section */
+.vrm-page .cyber-radar-hero-section,
+.vrm-page .cyber-radar-tag,
+.vrm-page .cyber-radar-title,
+.vrm-page .cyber-radar-description,
+.vrm-page .cyber-radar-btn-primary,
+.vrm-page .cyber-radar-btn-secondary,
+.vrm-page .cyber-radar-card-title,
+.vrm-page .cyber-radar-card-subtitle,
+.vrm-page .cyber-radar-card-badge {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+}

@@ -14,7 +14,6 @@ import {
 
 } from 'lucide-react';
 import './VendorRiskManagement.css';
-import { Footer } from '../../components/Footer/Footer';
 
 export default function VendorRiskManagement() {
   useEffect(() => {
@@ -194,7 +193,6 @@ export default function VendorRiskManagement() {
           </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

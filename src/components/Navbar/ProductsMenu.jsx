@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Shield, ShieldAlert, BadgeCheck, FileSearch, Lock, Zap, ServerCrash, Key, Target, Radar } from 'lucide-react';
+import { Building2, Globe, Shield, ShieldAlert, BadgeCheck, FileSearch, Lock, Zap, ServerCrash, Key, Target, Radar } from 'lucide-react';
 
 export function ProductsMenu() {
   return (
@@ -15,7 +15,7 @@ export function ProductsMenu() {
           <ul style={{ gap: '0.25rem' }}>
             <li>
               <Link to="/products/third-party-risk-management/brand-reputation" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none', borderRadius: '8px', transition: 'background-color 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.02)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#0ea5e9' }} /></div>
+                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Building2 size={18} style={{ color: '#0ea5e9' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Brand Reputation Management</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Protect your brand from digital threats</span>
@@ -59,67 +59,67 @@ export function ProductsMenu() {
           </Link>
           <ul style={{ gap: '0.25rem' }}>
             <li>
-              <a href="/products/autonomous-pentesting#web-app-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/autonomous-pentesting/web-app" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Web App Pentesting</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Vulnerability discovery for web apps</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/autonomous-pentesting#api-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/autonomous-pentesting/api" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Zap size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>API Pentesting</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Secure APIs against modern threats</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/autonomous-pentesting#mcp-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/autonomous-pentesting/mcp-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ShieldAlert size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>MCP Pentesting</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Continuous validation for MCPs</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/autonomous-pentesting#ai-vs-ai" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/autonomous-pentesting/ai-vs-ai" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Target size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>AI vs AI</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Defend against AI-driven attacks</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/autonomous-pentesting#network-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/autonomous-pentesting/network" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Lock size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Network Pentesting</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Identify infrastructure weaknesses</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/products/autonomous-pentesting#external-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/autonomous-pentesting/external" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Key size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>External Pentesting</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Discover external exposures</span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem' }}>
+              <Link to="/products/autonomous-pentesting/continuous" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Shield size={18} style={{ color: '#f97316' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Continuous Pentesting</strong>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>24/7 automated security testing</span>
                 </div>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

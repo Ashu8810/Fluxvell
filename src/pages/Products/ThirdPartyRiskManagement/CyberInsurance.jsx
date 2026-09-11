@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FileCheck, CheckCircle, BadgeCheck, FileText, ArrowRight } from 'lucide-react';
 import '../ThirdPartyRiskManagement.css';
-import { Footer } from '../../../components/Footer/Footer';
 
 export default function CyberInsurance() {
   useEffect(() => {
@@ -153,7 +152,6 @@ export default function CyberInsurance() {
           </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );
