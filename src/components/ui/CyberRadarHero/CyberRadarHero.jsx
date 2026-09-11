@@ -14,8 +14,8 @@ import {
   ShieldCheck,
   Zap, 
   ArrowRight, 
-  ArrowUpRight,
-  ArrowDown 
+  ArrowDown,
+  ArrowUpRight
 } from 'lucide-react';
 import './CyberRadarHero.css';
 
@@ -221,7 +221,7 @@ export function CyberRadarHero({
   description = "Fluxvell helps security teams continuously discover, validate, and prioritize real risk across web applications, infrastructure, and cloud environments.",
   primaryBtnText = "Request a Demo",
   primaryBtnLink = "/contact",
-  secondaryBtnText = "See How It Works",
+  secondaryBtnText = null,
   secondaryBtnLink = "#overview",
   onSecondaryClick,
   nodes,
@@ -240,7 +240,7 @@ export function CyberRadarHero({
     if (onSecondaryClick) {
       e.preventDefault();
       onSecondaryClick(e);
-    } else if (secondaryBtnLink.startsWith('#')) {
+    } else if (secondaryBtnLink && secondaryBtnLink.startsWith('#')) {
       e.preventDefault();
       const targetId = secondaryBtnLink.replace('#', '');
       const element = document.getElementById(targetId);
@@ -287,20 +287,24 @@ export function CyberRadarHero({
           </p>
 
           <div className="cyber-radar-actions">
-            <Link to={primaryBtnLink} className="btn btn-primary btn-animated" style={{textTransform: 'uppercase', fontWeight: 600}}>
-              <span className="btn-text">{primaryBtnText}</span>
-              <div className="btn-icon-wrapper">
-                <ArrowUpRight size={16} />
-              </div>
-            </Link>
+            {primaryBtnText && (
+              <Link to={primaryBtnLink} className="btn btn-primary btn-animated" style={{ marginRight: '1rem', marginBottom: '1rem' }}>
+                <span className="btn-text">{primaryBtnText.toUpperCase()}</span>
+                <div className="btn-icon-wrapper">
+                  <ArrowUpRight size={16} />
+                </div>
+              </Link>
+            )}
 
-            <a 
-              href={secondaryBtnLink} 
-              onClick={handleSecondaryAction}
-              className="cyber-radar-btn-secondary"
-            >
-              {secondaryBtnText}
-            </a>
+            {secondaryBtnText && (
+              <a 
+                href={secondaryBtnLink} 
+                onClick={handleSecondaryAction}
+                className="cyber-radar-btn-secondary"
+              >
+                {secondaryBtnText}
+              </a>
+            )}
           </div>
         </div>
 
@@ -473,24 +477,19 @@ export function CyberRadarHero({
                               <div 
                                 className="cyber-radar-card-icon"
                                 style={{ 
-                                  color: getPlanetColor(planet, theme), 
-                                  borderColor: `${getPlanetColor(planet, theme)}35`, 
-                                  background: `${getPlanetColor(planet, theme)}18` 
+                                  color: '#f8fafc', 
+                                  borderColor: 'rgba(255, 255, 255, 0.12)', 
+                                  background: 'rgba(255, 255, 255, 0.02)' 
                                 }}
                               >
                                 <IconComponent size={17} />
                               </div>
                               <div className="cyber-radar-card-info">
-                                <div className="cyber-radar-card-title-row">
-                                  <span className="cyber-radar-card-title">{planet.title}</span>
-                                  {planet.severity && (
-                                    <span className={`cyber-radar-card-badge ${planet.severityType || 'high'}`}>
-                                      {planet.severity}
-                                    </span>
-                                  )}
-                                </div>
-                                {planet.subtitle && (
-                                  <span className="cyber-radar-card-subtitle">{planet.subtitle}</span>
+                                <span className="cyber-radar-card-title">{planet.title}</span>
+                                {planet.severity && (
+                                  <span className={`cyber-radar-card-badge ${planet.severityType || 'high'}`}>
+                                    {planet.severity}
+                                  </span>
                                 )}
                               </div>
                             </div>
@@ -519,7 +518,11 @@ export function CyberRadarHero({
             </div>
           )}
 
-
+          {/* Lower Right Tagline */}
+          <div className="cyber-radar-tagline-bottom-right">
+            <span className="cyber-radar-tagline-text">{footerTagline}</span>
+            <div className="cyber-radar-tagline-line" />
+          </div>
         </div>
       </div>
 

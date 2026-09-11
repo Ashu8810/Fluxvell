@@ -9,7 +9,7 @@
   max-width: 100%;
   margin-left: calc(-50vw + 50%);
   background-color: #030712;
-  background-image: 
+  background-image:
     radial-gradient(circle at 75% 45%, rgba(14, 165, 233, 0.18) 0%, rgba(2, 132, 199, 0.05) 45%, transparent 65%),
     radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
     radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.16) 0%, transparent 50%);
@@ -29,7 +29,7 @@
   position: absolute;
   inset: 0;
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
   mask-image: radial-gradient(ellipse at 60% 50%, #000 30%, transparent 75%);
@@ -87,10 +87,10 @@
 }
 
 .cyber-radar-title {
-  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
   font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
   margin: 0 0 1.75rem 0;
   display: flex;
   flex-direction: column;
@@ -209,7 +209,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: none;
+  border: 1px solid rgba(56, 189, 248, 0.1);
   pointer-events: none;
   transition: all 0.3s ease;
   z-index: 2;
@@ -217,7 +217,7 @@
 
 .solar-orbit-ring.active,
 .solar-orbit-ring:hover {
-  border: none;
+  border-color: rgba(56, 189, 248, 0.45);
   box-shadow: 0 0 18px rgba(14, 165, 233, 0.25);
 }
 
@@ -232,7 +232,7 @@
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #0c2b48 0%, #031326 70%, #020617 100%);
   border: 1.5px solid rgba(56, 189, 248, 0.7);
-  box-shadow: 
+  box-shadow:
     0 0 50px rgba(14, 165, 233, 0.55),
     0 0 100px rgba(56, 189, 248, 0.3),
     inset 0 0 25px rgba(56, 189, 248, 0.4);
@@ -245,7 +245,7 @@
 
 .solar-center-sun:hover {
   transform: translate(-50%, -50%) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 0 70px rgba(14, 165, 233, 0.8),
     0 0 130px rgba(56, 189, 248, 0.5),
     inset 0 0 35px rgba(56, 189, 248, 0.6);
@@ -276,8 +276,15 @@
 }
 
 @keyframes solar-corona-pulse {
-  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
-  100% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -306,6 +313,7 @@
   from {
     transform: rotate(var(--start-angle, 0deg));
   }
+
   to {
     transform: rotate(calc(var(--start-angle, 0deg) + 360deg));
   }
@@ -342,8 +350,15 @@
 }
 
 @keyframes solar-dot-pulse {
-  0% { transform: scale(0.6); opacity: 0.9; }
-  100% { transform: scale(2.6); opacity: 0; }
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
 }
 
 .solar-planet-dot.critical {
@@ -460,6 +475,7 @@
   from {
     transform: rotate(calc(-1 * var(--start-angle, 0deg)));
   }
+
   to {
     transform: rotate(calc(-1 * var(--start-angle, 0deg) - 360deg));
   }
@@ -635,8 +651,15 @@
 }
 
 @keyframes radar-blip-pulse {
-  0% { transform: scale(0.6); opacity: 0.9; }
-  100% { transform: scale(2.8); opacity: 0; }
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
 }
 
 .cyber-radar-blip-dot.critical {
@@ -658,23 +681,46 @@
 }
 
 /* Subtle floating micro-animation for natural drift */
-.cyber-radar-node-float-1 { animation: node-float-1 6s ease-in-out infinite alternate; }
-.cyber-radar-node-float-2 { animation: node-float-2 7s ease-in-out infinite alternate; }
-.cyber-radar-node-float-3 { animation: node-float-3 6.5s ease-in-out infinite alternate; }
+.cyber-radar-node-float-1 {
+  animation: node-float-1 6s ease-in-out infinite alternate;
+}
+
+.cyber-radar-node-float-2 {
+  animation: node-float-2 7s ease-in-out infinite alternate;
+}
+
+.cyber-radar-node-float-3 {
+  animation: node-float-3 6.5s ease-in-out infinite alternate;
+}
 
 @keyframes node-float-1 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(3px, -5px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(3px, -5px);
+  }
 }
 
 @keyframes node-float-2 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-4px, 4px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-4px, 4px);
+  }
 }
 
 @keyframes node-float-3 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(2px, 5px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(2px, 5px);
+  }
 }
 
 /* ==========================================================================
@@ -810,8 +856,15 @@
 }
 
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
 }
 
 /* ==========================================================================
@@ -822,15 +875,26 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
-  
+
   .cyber-radar-viewport {
     width: 540px;
     height: 540px;
   }
-  
-  .cyber-radar-ring-4 { width: 540px; height: 540px; }
-  .cyber-radar-ring-3 { width: 440px; height: 440px; }
-  .cyber-radar-ring-2 { width: 310px; height: 310px; }
+
+  .cyber-radar-ring-4 {
+    width: 540px;
+    height: 540px;
+  }
+
+  .cyber-radar-ring-3 {
+    width: 440px;
+    height: 440px;
+  }
+
+  .cyber-radar-ring-2 {
+    width: 310px;
+    height: 310px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -897,23 +961,12 @@
 /* ==========================================================================
    Red Theme Overrides
    ========================================================================== */
-/* Theme Blue (Default) Hero Button Hover Override */
-.cyber-radar-hero-section:not(.theme-red) .btn-primary:hover {
-  background-color: #0ea5e9;
-  border-color: #0ea5e9;
-}
-
 .cyber-radar-hero-section.theme-red {
-  background-image: 
-    radial-gradient(circle at 75% 45%, rgba(239, 68, 68, 0.18) 0%, rgba(220, 38, 38, 0.05) 45%, transparent 65%),
-    radial-gradient(circle at 20% 80%, rgba(244, 63, 94, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 50% -20%, rgba(248, 113, 113, 0.16) 0%, transparent 50%);
+  background-image: none;
 }
 
 .cyber-radar-hero-section.theme-red::before {
-  background-image: 
-    linear-gradient(to right, rgba(248, 113, 113, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(248, 113, 113, 0.06) 1px, transparent 1px);
+  background-image: none;
 }
 
 .cyber-radar-hero-section.theme-red .cyber-radar-tag {
@@ -924,14 +977,8 @@
   background: rgba(248, 113, 113, 0.45);
 }
 
-.cyber-radar-hero-section.theme-red .cyber-radar-title {
-  font-size: clamp(3.5rem, 7vw, 6.5rem);
-  line-height: 1.0;
-  letter-spacing: -0.04em;
-}
-
 .cyber-radar-hero-section.theme-red .cyber-radar-title-line-2 {
-  color: #ef4444;
+  color: #94a3b8;
 }
 
 .cyber-radar-hero-section.theme-red .cyber-radar-btn-primary {
@@ -953,12 +1000,12 @@
 }
 
 .cyber-radar-hero-section.theme-red .solar-orbit-ring {
-  border: none;
+  border: 1px solid rgba(248, 113, 113, 0.05);
 }
 
 .cyber-radar-hero-section.theme-red .solar-orbit-ring.active {
-  border: none;
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.1) inset;
+  border: 1px solid rgba(248, 113, 113, 0.15);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.05) inset;
 }
 
 
@@ -974,17 +1021,17 @@
 }
 
 .cyber-radar-hero-section.theme-red .solar-core-glow {
-  background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.05) 0%, transparent 60%);
 }
 
 .cyber-radar-hero-section.theme-red .solar-core-pulse {
-  background: radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.12) 0%, transparent 70%);
 }
 
 .cyber-radar-hero-section.theme-red .solar-core-ring {
-  border: 1px solid rgba(248, 113, 113, 0.25);
-  background: radial-gradient(circle, rgba(15, 10, 10, 0.8) 0%, rgba(239, 68, 68, 0.05) 100%);
-  box-shadow: 0 0 30px rgba(239, 68, 68, 0.15), inset 0 0 20px rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.15);
+  background: radial-gradient(circle, rgba(15, 10, 10, 0.8) 0%, rgba(239, 68, 68, 0.02) 100%);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.08), inset 0 0 10px rgba(239, 68, 68, 0.05);
 }
 
 .cyber-radar-hero-section.theme-red .cyber-radar-card-subtitle {
@@ -992,22 +1039,52 @@
 }
 
 .cyber-radar-hero-section.theme-red .solar-center-sun {
-  background: radial-gradient(circle at 35% 35%, #480c0c 0%, #260303 70%, #0f0202 100%);
-  border: 1.5px solid rgba(248, 113, 113, 0.7);
-  box-shadow: 
-    0 0 50px rgba(239, 68, 68, 0.55),
-    0 0 100px rgba(248, 113, 113, 0.3),
-    inset 0 0 25px rgba(248, 113, 113, 0.4);
+  background: radial-gradient(circle, #120505 0%, #050505 100%);
+  border: 1px solid rgba(239, 68, 68, 0.1);
+  box-shadow:
+    0 0 20px rgba(239, 68, 68, 0.15),
+    0 0 40px rgba(239, 68, 68, 0.05);
 }
 
 .cyber-radar-hero-section.theme-red .solar-center-sun:hover {
-  box-shadow: 
-    0 0 70px rgba(239, 68, 68, 0.8),
-    0 0 130px rgba(248, 113, 113, 0.5),
-    inset 0 0 35px rgba(248, 113, 113, 0.6);
-  border-color: rgba(248, 113, 113, 0.95);
+  box-shadow:
+    0 0 25px rgba(239, 68, 68, 0.2),
+    0 0 50px rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
 }
 
 .cyber-radar-hero-section.theme-red .cyber-radar-center-logo {
-  filter: drop-shadow(0 0 14px rgba(248, 113, 113, 0.95));
+  filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.3));
+}
+
+.cyber-radar-hero-section.theme-red .cyber-radar-card-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: none;
+  box-shadow: none;
+  margin-top: 0.15rem;
+  display: inline-block;
+}
+
+.cyber-radar-hero-section.theme-red .cyber-radar-card-badge.critical {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.cyber-radar-hero-section.theme-red .cyber-radar-card-badge.high {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.cyber-radar-hero-section.theme-red .cyber-radar-card-badge.medium {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.cyber-radar-hero-section.theme-red .cyber-radar-card-title {
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 600;
 }

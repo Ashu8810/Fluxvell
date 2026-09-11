@@ -52,7 +52,6 @@ export default function ThirdPartyRiskManagement() {
         primaryBtnLink="/contact"
         secondaryBtnText="See How It Works"
         secondaryBtnLink="#overview"
-        stages={[]}
       />
 
       <div className="vrm-content-wrapper">
