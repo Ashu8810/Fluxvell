@@ -46,7 +46,10 @@ function App() {
         <Route path="/solutions/vulnerability-management" element={<VulnerabilityManagement />} />
         <Route path="/solutions/executive-monitoring" element={<ExecutiveMonitoring />} />
         <Route path="/products/third-party-risk-management" element={<ThirdPartyRiskManagement />} />
-        <Route path="/products/third-party-risk-management/:sectionId" element={<ThirdPartyRiskManagement />} />
+        <Route path="/products/third-party-risk-management/brand-reputation" element={<BrandReputation />} />
+        <Route path="/products/third-party-risk-management/operational-risk" element={<OperationalRisk />} />
+        <Route path="/products/third-party-risk-management/dark-web" element={<DarkWebSurveillance />} />
+        <Route path="/products/third-party-risk-management/cyber-insurance" element={<CyberInsurance />} />
         <Route path="/products/autonomous-pentesting" element={<AutonomousPentesting />} />
         <Route path="/products/autonomous-pentesting/web-app" element={<WebAppPentesting />} />
         <Route path="/products/autonomous-pentesting/api" element={<APIPentesting />} />

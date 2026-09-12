@@ -31,10 +31,10 @@ export function Footer() {
         <div className="vrm-footer-col">
           <h4 className="vrm-footer-heading">Products</h4>
           <Link to="/products/third-party-risk-management" className="vrm-footer-link">Third-Party Risk Management</Link>
-          <Link to="/products/third-party-risk-management#brand-reputation" className="vrm-footer-link">Brand Reputation Management</Link>
-          <Link to="/products/third-party-risk-management#operational-risk" className="vrm-footer-link">Operational Risk Management</Link>
-          <Link to="/products/third-party-risk-management#dark-web" className="vrm-footer-link">Dark Web Surveillance</Link>
-          <Link to="/products/third-party-risk-management#cyber-insurance" className="vrm-footer-link">Cyber Insurance</Link>
+          <Link to="/products/third-party-risk-management/brand-reputation" className="vrm-footer-link">Brand Reputation Management</Link>
+          <Link to="/products/third-party-risk-management/operational-risk" className="vrm-footer-link">Operational Risk Management</Link>
+          <Link to="/products/third-party-risk-management/dark-web" className="vrm-footer-link">Dark Web Surveillance</Link>
+          <Link to="/products/third-party-risk-management/cyber-insurance" className="vrm-footer-link">Cyber Insurance</Link>
         </div>
 
         <div className="vrm-footer-col">

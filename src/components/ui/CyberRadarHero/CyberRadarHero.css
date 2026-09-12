@@ -227,14 +227,25 @@
   justify-content: center;
   z-index: 20;
   transition: all 0.3s ease;
+  animation: sun-heartbeat 1.5s ease-in-out infinite;
 }
 
 .solar-center-sun:hover {
+  animation-play-state: paused;
   transform: translate(-50%, -50%) scale(1.05);
   box-shadow:
     0 0 25px rgba(14, 165, 233, 0.2),
     0 0 50px rgba(56, 189, 248, 0.1);
   border-color: rgba(56, 189, 248, 0.3);
+}
+
+@keyframes sun-heartbeat {
+  0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), 0 0 40px rgba(56, 189, 248, 0.05); }
+  15% { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 25px rgba(14, 165, 233, 0.22), 0 0 50px rgba(56, 189, 248, 0.15); }
+  30% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), 0 0 40px rgba(56, 189, 248, 0.05); }
+  45% { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 25px rgba(14, 165, 233, 0.22), 0 0 50px rgba(56, 189, 248, 0.15); }
+  70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), 0 0 40px rgba(56, 189, 248, 0.05); }
+  100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), 0 0 40px rgba(56, 189, 248, 0.05); }
 }
 
 .cyber-radar-center-logo {
@@ -1140,17 +1151,31 @@
 
 .cyber-radar-hero-section.theme-red .solar-center-sun {
   background: radial-gradient(circle, #120505 0%, #050505 100%);
-  border: 1px solid rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.15);
   box-shadow:
     0 0 20px rgba(239, 68, 68, 0.15),
     0 0 40px rgba(239, 68, 68, 0.05);
+  animation: sun-pulse-red 4s ease-in-out infinite;
 }
 
 .cyber-radar-hero-section.theme-red .solar-center-sun:hover {
+  animation-play-state: paused;
+  transform: translate(-50%, -50%) scale(1.05);
   box-shadow:
     0 0 25px rgba(239, 68, 68, 0.2),
     0 0 50px rgba(239, 68, 68, 0.1);
   border-color: rgba(239, 68, 68, 0.2);
+}
+
+@keyframes sun-pulse-red {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1); 
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.15), 0 0 40px rgba(239, 68, 68, 0.05); 
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.15); 
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.35), 0 0 70px rgba(239, 68, 68, 0.2); 
+  }
 }
 
 .cyber-radar-hero-section.theme-red .cyber-radar-center-logo {
@@ -1203,3 +1228,8 @@
   font-size: 0.95rem;
   font-weight: 600;
 }
+.cyber-radar-hero-section.theme-red .solar-orbit-rotator,
+.cyber-radar-hero-section.theme-red .solar-counter-rotator {
+  animation-play-state: paused !important;
+}
+

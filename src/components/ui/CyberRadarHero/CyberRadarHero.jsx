@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Building2,
   ServerCrash,
@@ -226,86 +226,14 @@ export function CyberRadarHero({
   onSecondaryClick,
   nodes,
   planets: customPlanets,
-  stages = ["DISCOVER", "VALIDATE", "PRIORITIZE", "REMEDIATE"],
   footerTagline = "A MORE RESILIENT TOMORROW",
   trustedTitle = "TRUSTED BY SECURITY TEAMS WORLDWIDE",
   showLogos = true,
   theme = "blue"
 }) {
+  const navigate = useNavigate();
   const planets = customPlanets || nodes || DEFAULT_PLANETS;
-  const [activeStage, setActiveStage] = useState(0);
   const [hoveredPlanet, setHoveredPlanet] = useState(null);
-  const [isLightMode, setIsLightMode] = useState(false);
-
-  // ScrollSpy to dynamically highlight active stage and adapt to light/dark sections
-  useEffect(() => {
-    const handleScrollSpy = () => {
-      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
-      
-      // 1. Detect active stage
-      if (stages && stages.length > 0) {
-        let currentActiveIdx = 0;
-        stages.forEach((s, idx) => {
-          const raw = typeof s === 'string' ? s.toLowerCase().replace(/\s+/g, '-') : (s.link || '').replace('#', '');
-          const targetEl = document.getElementById(raw) || 
-                           document.getElementById(`${raw}-pentesting`) || 
-                           document.getElementById(`${raw.replace('-pentesting', '')}`);
-          if (targetEl) {
-            const top = targetEl.offsetTop;
-            if (scrollPosition >= top) {
-              currentActiveIdx = idx;
-            }
-          }
-        });
-        setActiveStage(currentActiveIdx);
-      }
-
-      // 2. Detect whether floating indicator is over a light or dark background
-      const indicatorY = window.innerHeight * 0.5;
-      const indicatorX = window.innerWidth - 60;
-      const elements = document.elementsFromPoint ? document.elementsFromPoint(indicatorX, indicatorY) : [];
-      let isLight = false;
-
-      for (const el of elements) {
-        if (el.classList.contains('cyber-radar-edge-steps') || el.closest('.cyber-radar-edge-steps')) {
-          continue;
-        }
-        let cur = el;
-        while (cur && cur !== document.documentElement) {
-          const style = window.getComputedStyle(cur);
-          const bg = style.backgroundColor;
-          if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
-            const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-            if (match) {
-              const r = parseInt(match[1], 10);
-              const g = parseInt(match[2], 10);
-              const b = parseInt(match[3], 10);
-              const a = match[4] !== undefined ? parseFloat(match[4]) : 1;
-              if (a > 0.25) {
-                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-                if (brightness > 140) {
-                  isLight = true;
-                }
-                break;
-              }
-            }
-          }
-          cur = cur.parentElement;
-        }
-        if (isLight) break;
-      }
-      setIsLightMode(isLight);
-    };
-
-    window.addEventListener('scroll', handleScrollSpy, { passive: true });
-    window.addEventListener('resize', handleScrollSpy, { passive: true });
-    handleScrollSpy();
-
-    return () => {
-      window.removeEventListener('scroll', handleScrollSpy);
-      window.removeEventListener('resize', handleScrollSpy);
-    };
-  }, [stages]);
 
   const handleSecondaryAction = (e) => {
     if (onSecondaryClick) {
@@ -554,6 +482,8 @@ export function CyberRadarHero({
                                 if (targetEl) {
                                   targetEl.scrollIntoView({ behavior: 'smooth' });
                                   window.history.pushState(null, '', `#${targetId}`);
+                                } else if (['brand-reputation', 'operational-risk', 'dark-web', 'cyber-insurance'].includes(targetId)) {
+                                  navigate(`/products/third-party-risk-management/${targetId}`);
                                 }
                               }}
                               style={{ cursor: 'pointer' }}
@@ -587,43 +517,7 @@ export function CyberRadarHero({
             })}
           </div>
 
-          {/* Right Margin Vertical Stage List */}
-          {stages && stages.length > 0 && (
-            <div className={`cyber-radar-edge-steps ${isLightMode ? 'mode-light' : 'mode-dark'}`}>
-              {stages.map((stage, idx) => {
-                const label = typeof stage === 'string' ? stage : stage.label;
-                const link = typeof stage === 'object' && stage.link ? stage.link : `#${label.toLowerCase().replace(/\s+/g, '-')}`;
-                
-                const handleStageClick = (e) => {
-                  setActiveStage(idx);
-                  if (link) {
-                    const rawId = link.includes('#') ? link.split('#')[1] : link;
-                    const targetEl = document.getElementById(rawId) || 
-                                     document.getElementById(`${rawId}-pentesting`) ||
-                                     document.getElementById(`${rawId.replace('-pentesting', '')}`);
-                    if (targetEl) {
-                      e.preventDefault();
-                      targetEl.scrollIntoView({ behavior: 'smooth' });
-                      window.history.pushState(null, '', link.startsWith('#') ? link : `#${rawId}`);
-                    }
-                  }
-                };
 
-                return (
-                  <a 
-                    key={label}
-                    href={link}
-                    className={`cyber-radar-step-item ${activeStage === idx ? 'active' : ''}`}
-                    onClick={handleStageClick}
-                    style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  >
-                    <span className="cyber-radar-step-line-dash" />
-                    <span className="cyber-radar-step-text">{label}</span>
-                  </a>
-                );
-              })}
-            </div>
-          )}
 
           {/* Lower Right Tagline */}
           <div className="cyber-radar-tagline-bottom-right">

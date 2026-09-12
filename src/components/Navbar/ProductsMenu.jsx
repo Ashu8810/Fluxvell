@@ -14,7 +14,7 @@ export function ProductsMenu() {
           </Link>
           <ul style={{ gap: '0.25rem' }}>
             <li>
-              <Link to="/products/third-party-risk-management#brand-reputation" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none', borderRadius: '8px', transition: 'background-color 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.02)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+              <Link to="/products/third-party-risk-management/brand-reputation" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none', borderRadius: '8px', transition: 'background-color 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.02)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Building2 size={18} style={{ color: '#0ea5e9' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Brand Reputation Management</strong>
@@ -23,7 +23,7 @@ export function ProductsMenu() {
               </Link>
             </li>
             <li>
-              <Link to="/products/third-party-risk-management#operational-risk" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/third-party-risk-management/operational-risk" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ServerCrash size={18} style={{ color: '#0ea5e9' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Operational Risk Management</strong>
@@ -32,7 +32,7 @@ export function ProductsMenu() {
               </Link>
             </li>
             <li>
-              <Link to="/products/third-party-risk-management#dark-web" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/third-party-risk-management/dark-web" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><FileSearch size={18} style={{ color: '#0ea5e9' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Dark Web Surveillance</strong>
@@ -41,7 +41,7 @@ export function ProductsMenu() {
               </Link>
             </li>
             <li>
-              <Link to="/products/third-party-risk-management#cyber-insurance" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
+              <Link to="/products/third-party-risk-management/cyber-insurance" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
                 <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><BadgeCheck size={18} style={{ color: '#0ea5e9' }} /></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Cyber Insurance</strong>

@@ -29,9 +29,9 @@ export default function Home() {
     <div className="home-page">
       <section className="home-hero">
         <ScrollReveal className="home-hero-content" delay={0.1}>
-          <h1 className="home-hero-title">Continuous security. Clearer decisions.</h1>
+          <h1 className="home-hero-title">Security beyond<br/>your perimeter.</h1>
           <p className="home-hero-subtitle">
-            Assess third-party risk, automate penetration testing, and prioritize the vulnerabilities that matter most.
+            Continuously monitor third-party exposure and automate penetration testing to identify vulnerabilities before they become threats.
           </p>
           <div className="home-hero-ctas">
             <button className="home-btn-primary">

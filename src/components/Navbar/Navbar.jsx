@@ -152,28 +152,28 @@ function Navbar() {
             <div className={`mobile-dropdown-content ${mobileDropdowns.products ? 'open' : ''}`}>
               <div className="mobile-rich-list">
                 <div className="mobile-dropdown-section-title">Third-Party Risk Management</div>
-                <Link to="/products/third-party-risk-management#brand-reputation" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
+                <Link to="/products/third-party-risk-management/brand-reputation" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
                   <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Building2 size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Brand Reputation Management</strong>
                     <span>Protect your brand from digital threats</span>
                   </div>
                 </Link>
-                <Link to="/products/third-party-risk-management#operational-risk" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
+                <Link to="/products/third-party-risk-management/operational-risk" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
                   <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ServerCrash size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Operational Risk Management</strong>
                     <span>Monitor operational risks and resilience</span>
                   </div>
                 </Link>
-                <Link to="/products/third-party-risk-management#dark-web" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
+                <Link to="/products/third-party-risk-management/dark-web" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
                   <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><FileSearch size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Dark Web Surveillance</strong>
                     <span>Monitor underground threats</span>
                   </div>
                 </Link>
-                <Link to="/products/third-party-risk-management#cyber-insurance" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
+                <Link to="/products/third-party-risk-management/cyber-insurance" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
                   <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><BadgeCheck size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
                     <strong>Cyber Insurance</strong>
