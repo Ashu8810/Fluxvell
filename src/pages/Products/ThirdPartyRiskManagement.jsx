@@ -39,6 +39,8 @@ export default function ThirdPartyRiskManagement() {
         secondaryBtnText="See How It Works"
         secondaryBtnLink="#overview"
         showLogos={false}
+        bgImage="/Fluxvell_tprm.png"
+        hideRadar={true}
       />
 
       <div className="vrm-content-wrapper">

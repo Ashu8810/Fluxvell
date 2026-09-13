@@ -508,6 +508,19 @@
   padding: 0.45rem 0.9rem;
   transition: all 0.25s ease;
   white-space: nowrap;
+  animation: cyber-card-blink 3s infinite;
+}
+
+@keyframes cyber-card-blink {
+  0%, 100% { 
+    opacity: 1; 
+    border-color: rgba(56, 189, 248, 0.18); 
+  }
+  50% { 
+    opacity: 0.85; 
+    border-color: rgba(56, 189, 248, 0.6); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 8px rgba(56, 189, 248, 0.3) inset;
+  }
 }
 
 .cyber-radar-node:hover .cyber-radar-card,
@@ -1124,6 +1137,19 @@
   background: rgba(15, 10, 10, 0.7);
   border: 1px solid rgba(248, 113, 113, 0.18);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(248, 113, 113, 0.05) inset;
+  animation: cyber-card-blink-red 3s infinite;
+}
+
+@keyframes cyber-card-blink-red {
+  0%, 100% { 
+    opacity: 1; 
+    border-color: rgba(248, 113, 113, 0.18); 
+  }
+  50% { 
+    opacity: 0.85; 
+    border-color: rgba(248, 113, 113, 0.6); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 8px rgba(248, 113, 113, 0.3) inset;
+  }
 }
 
 .cyber-radar-hero-section.theme-red .cyber-radar-card:hover {

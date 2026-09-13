@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import { Globe } from '../../components/ui/CobeGlobe';
 import { RiskProblem } from './RiskProblem';
 import { RealData } from './RealData';
+import { TprmSection } from './TprmSection';
+import { TprmMaturity } from './TprmMaturity';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import './Home.css';
 
@@ -60,6 +62,8 @@ export default function Home() {
       </section>
 
       {/* Premium Sections */}
+      <TprmSection />
+      <TprmMaturity />
       <RiskProblem />
       <RealData />
 

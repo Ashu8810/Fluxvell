@@ -229,7 +229,9 @@ export function CyberRadarHero({
   footerTagline = "A MORE RESILIENT TOMORROW",
   trustedTitle = "TRUSTED BY SECURITY TEAMS WORLDWIDE",
   showLogos = true,
-  theme = "blue"
+  theme = "blue",
+  bgImage = null,
+  hideRadar = false
 }) {
   const navigate = useNavigate();
   const planets = customPlanets || nodes || DEFAULT_PLANETS;
@@ -256,7 +258,7 @@ export function CyberRadarHero({
   };
 
   return (
-    <div className={`cyber-radar-hero-section theme-${theme}`}>
+    <div className={`cyber-radar-hero-section theme-${theme}`} style={bgImage ? { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#030712' } : {}}>
       <div className="cyber-radar-main-container">
         {/* LEFT COLUMN: Hero Copy & Actions */}
         <div className="cyber-radar-content">
@@ -308,9 +310,10 @@ export function CyberRadarHero({
         </div>
 
         {/* RIGHT COLUMN: The Interactive Solar System */}
-        <div className="cyber-radar-stage-wrapper">
-          <div className="cyber-radar-viewport">
-            {/* Concentric Solar Orbit Rings for each planet */}
+        {!hideRadar && (
+          <div className="cyber-radar-stage-wrapper">
+            <div className="cyber-radar-viewport">
+              {/* Concentric Solar Orbit Rings for each planet */}
             {planets.map((planet) => (
               <div 
                 key={`ring-${planet.id}`} 
@@ -525,6 +528,7 @@ export function CyberRadarHero({
             <div className="cyber-radar-tagline-line" />
           </div>
         </div>
+        )}
       </div>
 
       {/* BOTTOM BAR: Trusted Enterprise Logos & Scroll */}
