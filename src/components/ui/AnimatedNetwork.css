@@ -1,155 +1,131 @@
 .animated-network-container {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
   position: relative;
-  width: 90vw;
-  max-width: 1000px;
-  height: 680px;
-  min-height: 680px;
+  overflow: hidden;
+  border-radius: 40px;
+  background: transparent;
+  cursor: grab;
+  /* To center the container if it's placed inside another flex container */
   margin: 0 auto;
+}
+
+.animated-network-container:active {
+  cursor: grabbing;
+}
+
+.ambient-watch-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.watch-node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* The layout logic sets translate and scale. We just ensure transition on opacity and colors if needed */
+  transition: opacity 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Make sure transforms set by JS apply from the center of the node */
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.watch-node-inner {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background: #ffffff; /* Premium light background */
-  border-radius: 32px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  color: #0f172a;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  transform: scale(0.3); /* Small dot by default */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-/* Subtle dot grid background */
-.network-bg-grid {
+.watch-node-inner > svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.watch-node-outer .watch-node-inner {
+  border: none;
+}
+
+.watch-node-center .watch-node-inner {
+  width: 90px;
+  height: 90px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  transform: scale(1); /* Keep center node full size */
+}
+
+.center-logo-img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+}
+
+.watch-node:hover .watch-node-inner {
+  transform: scale(1.1); /* Expand on hover */
+  box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.25), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
+}
+
+.watch-node:hover .watch-node-inner > svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.watch-node-label {
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+/* Show label on hover */
+.watch-node:hover .watch-node-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: hide labels for center node if any exist */
+.watch-node-center .watch-node-label {
   display: none;
 }
 
-.network-svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+.animated-network-container {
+  cursor: grab;
 }
 
-.network-path-beam {
-  stroke-dasharray: 300 1000;
-  animation: moveBeam 1.5s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.9)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
-}
-
-@keyframes moveBeam {
-  0% { stroke-dashoffset: 300; }
-  100% { stroke-dashoffset: -1000; }
-}
-
-.network-path-star {
-  stroke-dasharray: 0 1300;
-  animation: moveStar 1.5s linear infinite;
-  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 12px rgba(59, 130, 246, 1)) drop-shadow(0 0 24px rgba(59, 130, 246, 0.8));
-}
-
-@keyframes moveStar {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -1300; }
-}
-
-.network-node {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-}
-
-.network-node-inner {
-  background: #f8fafc; /* Solid background so lines don't show through */
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #475569;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.network-node-outer:hover .network-node-inner {
-  background: #e2e8f0;
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #0f172a;
-  transform: scale(1.05);
-}
-
-.center-inner {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  color: #ffffff;
-}
-
-.network-node-label {
-  position: absolute;
-  width: 130px;
-  white-space: normal;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.network-node-label.pos-bottom {
-  top: 100%;
-  margin-top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.network-node-label.pos-top {
-  bottom: 100%;
-  margin-bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.network-node-label.pos-right {
-  top: 50%;
-  left: 100%;
-  margin-left: 16px;
-  transform: translateY(-50%);
-  text-align: left;
-  align-items: flex-start;
-}
-
-.network-node-label.pos-left {
-  top: 50%;
-  right: 100%;
-  margin-right: 16px;
-  transform: translateY(-50%);
-  text-align: right;
-  align-items: flex-end;
-}
-
-.network-node-title {
-  color: #0f172a;
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.network-node-desc {
-  color: #94a3b8;
-  font-size: 0.7rem;
-  line-height: 1.3;
-  opacity: 0.8;
-}
-
-.network-node-outer:hover .network-node-label {
-  opacity: 1;
+.animated-network-container:active {
+  cursor: grabbing;
 }
