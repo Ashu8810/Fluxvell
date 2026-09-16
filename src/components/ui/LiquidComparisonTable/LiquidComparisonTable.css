@@ -1,0 +1,272 @@
+.liquid-comparison-wrapper {
+  padding: 4rem 2rem;
+  
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(20, 20, 35, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(45, 10, 15, 0.4) 0%, transparent 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.liquid-comparison-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  background: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Base Styles for all liquid items */
+.liquid-header, .liquid-row {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Mouse tracking glow effect */
+.liquid-glow {
+  position: absolute;
+  top: var(--mouse-y, 0);
+  left: var(--mouse-x, 0);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.liquid-header:hover .liquid-glow,
+.liquid-row:hover .liquid-glow {
+  opacity: 1;
+}
+
+/* Header Styles */
+.liquid-comparison-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.liquid-header {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.legacy-header {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.legacy-header .liquid-glow {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);
+}
+
+.fluxvell-header {
+  background: rgba(255, 59, 59, 0.03);
+  border-left: 1px solid rgba(255, 59, 59, 0.2);
+}
+
+.fluxvell-header .liquid-glow {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,59,59,0.15) 0%, transparent 60%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #8892b0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fluxvell-brand {
+  gap: 16px;
+}
+
+.fluxvell-logo-text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.fluxvell-badge {
+  background: rgba(255, 59, 59, 0.1);
+  border: 1px solid rgba(255, 59, 59, 0.3);
+  color: #ff5555;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+/* Cybernetic corner accents for Fluxvell */
+.corner-accent {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid transparent;
+  z-index: 2;
+}
+
+.corner-accent.top-left {
+  top: 0;
+  left: 0;
+  border-top-color: #ff3b3b;
+  border-left-color: #ff3b3b;
+}
+
+.corner-accent.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom-color: #ff3b3b;
+  border-left-color: #ff3b3b;
+}
+
+/* Body Styles */
+.liquid-comparison-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.liquid-row-container {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.liquid-row-container:last-child {
+  border-bottom: none;
+}
+
+.liquid-row {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  display: flex;
+}
+
+.row-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* Legacy Rows */
+.legacy-row {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.legacy-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.legacy-row .liquid-glow {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+}
+
+.legacy-row h3 {
+  color: #ccd6f6;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.legacy-row p {
+  color: #7b85a3;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Fluxvell Rows */
+.fluxvell-row {
+  background: rgba(255, 59, 59, 0.015);
+  border-left: 1px solid rgba(255, 59, 59, 0.2);
+}
+
+.fluxvell-row:hover {
+  background: rgba(255, 59, 59, 0.04);
+  box-shadow: inset 0 0 20px rgba(255, 59, 59, 0.05);
+}
+
+.fluxvell-row .liquid-glow {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,59,59,0.12) 0%, transparent 60%);
+}
+
+.fluxvell-row .check-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  filter: drop-shadow(0 0 5px rgba(255, 59, 59, 0.5));
+}
+
+.fluxvell-row h3 {
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.fluxvell-row p {
+  color: #a8b2d1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .liquid-comparison-header,
+  .liquid-row-container {
+    flex-direction: column;
+  }
+  
+  .fluxvell-header,
+  .fluxvell-row {
+    border-left: none;
+    border-top: 1px solid rgba(255, 59, 59, 0.2);
+  }
+  
+  .corner-accent.bottom-left {
+    display: none;
+  }
+  
+  .corner-accent.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid transparent;
+    border-top-color: #ff3b3b;
+    border-right-color: #ff3b3b;
+    z-index: 2;
+  }
+}

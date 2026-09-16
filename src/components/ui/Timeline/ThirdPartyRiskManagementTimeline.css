@@ -253,13 +253,6 @@
 
 .tprm-timeline-card-glow.active {
   opacity: 1;
-  animation: gentlePulse 4s infinite ease-in-out;
-}
-
-@keyframes gentlePulse {
-  0% { opacity: 0.6; transform: scale(0.98); }
-  50% { opacity: 1; transform: scale(1.02); }
-  100% { opacity: 0.6; transform: scale(0.98); }
 }
 
 /* The Card */
@@ -304,27 +297,21 @@
   box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.05);
 }
 
-/* The neon moving line */
+/* The neon background */
 .tprm-timeline-card-neon {
   position: absolute;
-  width: 250%;
-  height: 250%;
-  top: -75%;
-  left: -75%;
-  background: var(--tprm-card-neon-grad);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, rgba(var(--tprm-primary-rgb), 0.15) 0%, transparent 70%);
   z-index: -1;
-  animation: neonSpin 3s linear infinite;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
 .tprm-timeline-card.active .tprm-timeline-card-neon {
   opacity: 1;
-}
-
-@keyframes neonSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 /* Thin highlight inner border effect */

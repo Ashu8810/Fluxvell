@@ -5,6 +5,10 @@ import { RiskProblem } from './RiskProblem';
 import { RealData } from './RealData';
 import { TprmSection } from './TprmSection';
 import { TprmMaturity } from './TprmMaturity';
+import { PentestMaturity } from './PentestMaturity';
+import EcosystemBanner from '../../components/ui/EcosystemBanner/EcosystemBanner';
+import { WhatIsFluxnode } from './WhatIsFluxnode';
+import ScrollingMarquee from '../../components/ui/ScrollingMarquee/ScrollingMarquee';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import './Home.css';
 
@@ -63,7 +67,11 @@ export default function Home() {
 
       {/* Premium Sections */}
       <TprmSection />
+      <ScrollingMarquee />
+      <EcosystemBanner />
+      <WhatIsFluxnode />
       <TprmMaturity />
+      <PentestMaturity />
       <RiskProblem />
       <RealData />
 
