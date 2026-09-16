@@ -49,7 +49,9 @@ const baseNodes = [
 const allNodes = [
   { id: 'center', isCenter: true, icon: <img src="/Fluxvell_logo.png" alt="Fluxvell" className="center-logo-img" />, label: "Fluxvell", color: '#ffffff' },
   ...baseNodes.map((node, i) => ({ ...node, id: `n${i + 1}` })),
-  ...baseNodes.map((node, i) => ({ ...node, id: `n${i + 1 + baseNodes.length}` }))
+  ...baseNodes.map((node, i) => ({ ...node, id: `n${i + 1 + baseNodes.length}` })),
+  ...baseNodes.map((node, i) => ({ ...node, id: `n${i + 1 + baseNodes.length * 2}` })),
+  ...baseNodes.map((node, i) => ({ ...node, id: `n${i + 1 + baseNodes.length * 3}` }))
 ];
 
 const numNodes = allNodes.length;
