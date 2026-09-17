@@ -1,15 +1,67 @@
 .comparison-section {
   padding: 40px 5% 100px;
-  background-color: #050508; /* Very dark blue/black */
+  background-color: #f1f5f9;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  overflow: hidden;
+  position: relative;
   display: flex;
   justify-content: center;
   font-family: 'Inter', -apple-system, sans-serif;
-  color: #ffffff;
+  color: #111111;
+}
+
+.comparison-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 0%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, rgba(255, 255, 255, 0) 60%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  animation: liquid-drift 15s ease-in-out infinite alternate;
+}
+
+.comparison-section::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(255, 255, 255, 0) 60%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  animation: liquid-drift 20s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes liquid-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+  66% {
+    transform: translate(-5%, 15%) scale(0.9);
+  }
+  100% {
+    transform: translate(10%, -5%) scale(1.05);
+  }
 }
 
 .comparison-inner {
   max-width: 1200px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .comparison-title-container {
@@ -23,7 +75,7 @@
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #111111;
 }
 
 .fluxnode-red-accent {
@@ -33,13 +85,25 @@
 .comparison-grid {
   display: flex;
   flex-direction: column;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 
+    0 24px 50px -12px rgba(0, 0, 0, 0.15),
+    inset 0 2px 2px rgba(255, 255, 255, 1),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
 }
 
 .grid-header-row,
 .grid-data-row {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .grid-data-row:last-child {
@@ -56,63 +120,24 @@
 .header-cell.left-header,
 .capability-cell {
   flex: 2;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .header-cell.middle-header,
 .fluxvell-cell {
   flex: 1;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(30, 5, 5, 0.8) 0%, rgba(15, 2, 2, 0.8) 100%);
-  border-left: 1px solid rgba(239, 68, 68, 0.4);
-  border-right: 1px solid rgba(239, 68, 68, 0.4);
+  background: linear-gradient(180deg, rgba(254, 242, 242, 0.25) 0%, rgba(254, 226, 226, 0.05) 100%);
+  border-left: 1px solid rgba(239, 68, 68, 0.1);
+  border-right: 1px solid rgba(239, 68, 68, 0.1);
   position: relative;
 }
 
 /* FluxNode Glow Border Fixes */
-.grid-header-row .header-cell.middle-header {
-  border-top: 1px solid rgba(239, 68, 68, 0.4);
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.grid-data-row:last-child .fluxvell-cell {
-  border-bottom: 1px solid rgba(239, 68, 68, 0.4);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
 .header-cell.right-header,
 .traditional-cell {
   flex: 1;
   justify-content: center;
-}
-
-.grid-header-row .header-cell.right-header,
-.grid-header-row .header-cell.left-header {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.grid-header-row .header-cell.left-header {
-  border-top-left-radius: 12px;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-}
-.grid-header-row .header-cell.right-header {
-  border-top-right-radius: 12px;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-.grid-data-row .capability-cell {
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-}
-.grid-data-row .traditional-cell {
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-.grid-data-row:last-child .capability-cell {
-  border-bottom-left-radius: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.grid-data-row:last-child .traditional-cell {
-  border-bottom-right-radius: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Header Text Styles */
@@ -131,7 +156,7 @@
 .left-header h3 {
   font-size: 0.875rem;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   margin: 0 0 8px 0;
   font-weight: 600;
 }
@@ -139,7 +164,7 @@
 .left-header p {
   font-size: 0.7rem;
   letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.5);
   margin: 0;
   text-transform: uppercase;
 }
@@ -154,14 +179,18 @@
 .brand-logo-container h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #111111;
   margin: 0;
+}
+
+.brand-logo-container img {
+  display: block;
 }
 
 .middle-header p, .right-header p {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.5);
   margin: 0;
   text-transform: uppercase;
 }
@@ -174,13 +203,13 @@
 }
 
 .traditional-icon {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .traditional-logo-container h3 {
   font-size: 0.9rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   margin: 0;
   line-height: 1.2;
   text-align: left;
@@ -191,18 +220,18 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 16px;
-  color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .capability-text {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Icons in Cells */
@@ -234,7 +263,7 @@
   .header-cell.left-header,
   .capability-cell {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   
   .header-cell.middle-header,

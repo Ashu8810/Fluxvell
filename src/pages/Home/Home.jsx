@@ -8,8 +8,10 @@ import { TprmMaturity } from './TprmMaturity';
 import { PentestMaturity } from './PentestMaturity';
 import EcosystemBanner from '../../components/ui/EcosystemBanner/EcosystemBanner';
 import { WhatIsFluxnode } from './WhatIsFluxnode';
+import { WhatIsTprm } from './WhatIsTprm';
 import { FaqSection } from './FaqSection';
 import { ComparisonSection } from './ComparisonSection';
+import { TprmComparisonSection } from './TprmComparisonSection';
 import ScrollingMarquee from '../../components/ui/ScrollingMarquee/ScrollingMarquee';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import './Home.css';
@@ -74,6 +76,8 @@ export default function Home() {
       <WhatIsFluxnode />
       <ComparisonSection />
       <TprmMaturity />
+      <WhatIsTprm />
+      <TprmComparisonSection />
       <PentestMaturity />
       <RiskProblem />
       <RealData />

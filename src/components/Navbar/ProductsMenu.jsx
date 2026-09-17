@@ -1,130 +1,155 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Globe, Shield, ShieldAlert, BadgeCheck, FileSearch, Lock, Zap, ServerCrash, Key, Target, Radar } from 'lucide-react';
+import { Building2, Globe, Shield, ShieldAlert, BadgeCheck, FileSearch, Lock, Zap, ServerCrash, Key, Target } from 'lucide-react';
 
 export function ProductsMenu() {
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+
   return (
-    <div className="mega-menu" style={{ width: '700px', padding: '1.5rem' }}>
-      <div className="mega-menu-inner" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
+    <div className="mega-menu" style={{ width: '500px', padding: '1rem' }} onMouseLeave={() => setActiveSubmenu(null)}>
+      {/* Top level: Just the two logos */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
         
-        {/* Third-Party Risk Management Section */}
-        <div className="mega-menu-section">
-          <Link to="/products/third-party-risk-management" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', padding: '0.25rem 0' }}>
-            <h3 style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0ea5e9', textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>Third-Party Risk Management</h3>
-          </Link>
-          <ul style={{ gap: '0.25rem' }}>
-            <li>
-              <Link to="/products/third-party-risk-management/brand-reputation" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none', borderRadius: '8px', transition: 'background-color 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.02)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Building2 size={18} style={{ color: '#0ea5e9' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Brand Reputation Management</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Protect your brand from digital threats</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/third-party-risk-management/operational-risk" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ServerCrash size={18} style={{ color: '#0ea5e9' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Operational Risk Management</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Monitor operational risks and resilience</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/third-party-risk-management/dark-web" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><FileSearch size={18} style={{ color: '#0ea5e9' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Dark Web Surveillance</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Monitor underground threats</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/third-party-risk-management/cyber-insurance" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><BadgeCheck size={18} style={{ color: '#0ea5e9' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Cyber Insurance</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Data-driven insights for decisions</span>
-                </div>
-              </Link>
-            </li>
-          </ul>
+        {/* FluxNode Dropdown Item */}
+        <div 
+          style={{ 
+            flex: 1, 
+            padding: '1.5rem', 
+            border: '1px solid rgba(0,0,0,0.05)', 
+            borderRadius: '8px', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            cursor: 'pointer',
+            backgroundColor: activeSubmenu === 'fluxnode' ? '#f8fafc' : 'transparent',
+            transition: 'all 0.2s'
+          }}
+          onMouseEnter={() => setActiveSubmenu('fluxnode')}
+        >
+          <img src="/fluxnode_black.png" alt="FluxNode" style={{ height: '44px' }} />
         </div>
 
-        {/* Autonomous Pentesting Section */}
-        <div className="mega-menu-section">
-          <Link to="/products/autonomous-pentesting" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', padding: '0.25rem 0' }}>
-            <h3 style={{ fontSize: '0.8rem', fontWeight: 800, color: '#f97316', textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>Autonomous Pentesting</h3>
-          </Link>
-          <ul style={{ gap: '0.25rem' }}>
-            <li>
-              <Link to="/products/autonomous-pentesting/web-app" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Web App Pentesting</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Vulnerability discovery for web apps</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/autonomous-pentesting/api" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Zap size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>API Pentesting</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Secure APIs against modern threats</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/autonomous-pentesting/mcp-pentesting" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ShieldAlert size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>MCP Pentesting</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Continuous validation for MCPs</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/autonomous-pentesting/ai-vs-ai" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Target size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>AI vs AI</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Defend against AI-driven attacks</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/autonomous-pentesting/network" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Lock size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Network Pentesting</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Identify infrastructure weaknesses</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/autonomous-pentesting/external" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Key size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>External Pentesting</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>Discover external exposures</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/products/autonomous-pentesting/continuous" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '0.75rem', padding: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Shield size={18} style={{ color: '#f97316' }} /></div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                  <strong style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>Continuous Pentesting</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.4 }}>24/7 automated security testing</span>
-                </div>
-              </Link>
-            </li>
-          </ul>
+        {/* FluxWatch Dropdown Item */}
+        <div 
+          style={{ 
+            flex: 1, 
+            padding: '1.5rem', 
+            border: '1px solid rgba(0,0,0,0.05)', 
+            borderRadius: '8px', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            cursor: 'pointer',
+            backgroundColor: activeSubmenu === 'fluxwatch' ? '#f8fafc' : 'transparent',
+            transition: 'all 0.2s'
+          }}
+          onMouseEnter={() => setActiveSubmenu('fluxwatch')}
+        >
+          <img src="/fluxwatch_black.png" alt="FluxWatch" style={{ height: '44px' }} />
         </div>
-
       </div>
+
+      {/* Submenus - show conditionally based on hover state */}
+      
+      {/* FluxNode Submenu (TPRM) */}
+      <div style={{ 
+        display: activeSubmenu === 'fluxnode' ? 'grid' : 'none', 
+        gridTemplateColumns: 'repeat(2, 1fr)', 
+        gap: '1rem', 
+        marginTop: '1.5rem',
+        paddingTop: '1.5rem',
+        borderTop: '1px solid rgba(0,0,0,0.05)'
+      }}>
+        <Link to="/products/third-party-risk-management/brand-reputation" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Building2 size={18} style={{ color: '#0ea5e9' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Brand Reputation</strong>
+            <span>Protect your digital brand</span>
+          </div>
+        </Link>
+        <Link to="/products/third-party-risk-management/operational-risk" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ServerCrash size={18} style={{ color: '#0ea5e9' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Operational Risk</strong>
+            <span>Monitor resilience</span>
+          </div>
+        </Link>
+        <Link to="/products/third-party-risk-management/dark-web" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><FileSearch size={18} style={{ color: '#0ea5e9' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Dark Web</strong>
+            <span>Monitor threats</span>
+          </div>
+        </Link>
+        <Link to="/products/third-party-risk-management/cyber-insurance" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><BadgeCheck size={18} style={{ color: '#0ea5e9' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Cyber Insurance</strong>
+            <span>Data-driven insights</span>
+          </div>
+        </Link>
+      </div>
+
+      {/* FluxWatch Submenu (Pentesting) */}
+      <div style={{ 
+        display: activeSubmenu === 'fluxwatch' ? 'grid' : 'none', 
+        gridTemplateColumns: 'repeat(2, 1fr)', 
+        gap: '1rem', 
+        marginTop: '1.5rem',
+        paddingTop: '1.5rem',
+        borderTop: '1px solid rgba(0,0,0,0.05)'
+      }}>
+        <Link to="/products/autonomous-pentesting/web-app" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Web App</strong>
+            <span>Discover vulnerabilities</span>
+          </div>
+        </Link>
+        <Link to="/products/autonomous-pentesting/api" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Zap size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>API Pentesting</strong>
+            <span>Secure your APIs</span>
+          </div>
+        </Link>
+        <Link to="/products/autonomous-pentesting/mcp-pentesting" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><ShieldAlert size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>MCP Pentesting</strong>
+            <span>Validate MCPs</span>
+          </div>
+        </Link>
+        <Link to="/products/autonomous-pentesting/ai-vs-ai" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Target size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>AI vs AI</strong>
+            <span>Defend against AI</span>
+          </div>
+        </Link>
+        <Link to="/products/autonomous-pentesting/network" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Lock size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Network</strong>
+            <span>Identify weaknesses</span>
+          </div>
+        </Link>
+        <Link to="/products/autonomous-pentesting/external" className="mobile-rich-item">
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Key size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>External</strong>
+            <span>Discover exposures</span>
+          </div>
+        </Link>
+        <Link to="/products/autonomous-pentesting/continuous" className="mobile-rich-item" style={{ gridColumn: 'span 2' }}>
+          <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Shield size={18} style={{ color: '#f97316' }} /></div>
+          <div className="mobile-rich-text">
+            <strong>Continuous Pentesting</strong>
+            <span>24/7 automated security testing</span>
+          </div>
+        </Link>
+      </div>
+
     </div>
   );
 }

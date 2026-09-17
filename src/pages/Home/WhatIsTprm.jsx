@@ -3,20 +3,19 @@ import { Shield, Target, Zap, ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import './WhatIsFluxnode.css';
 
-export const WhatIsFluxnode = () => {
+export const WhatIsTprm = () => {
   return (
     <section className="whatis-fluxnode-section" id="what-is-fluxnode">
-      {/* Animated Liquid-Glass Ambient Background */}
       <div className="whatis-fluxnode-inner">
         <ScrollReveal className="whatis-fluxnode-header">
           <div className="fluxnode-logo-wrapper">
-             <img src="/fluxnode_white.png" alt="FluxNode" className="fluxnode-header-logo" />
+             <img src="/fluxwatch_white.png" alt="FluxWatch" className="fluxnode-header-logo" />
           </div>
           <h2 className="whatis-fluxnode-title">
-            What is <span className="fluxnode-red-accent">FluxNode?</span>
+            What is <span className="fluxnode-red-accent">FluxWatch?</span>
           </h2>
           <p className="whatis-fluxnode-subtitle">
-            FluxNode is our core intelligent engine that powers continuous offensive validation. It acts as an autonomous virtual hacker inside or outside your perimeter to find the weakest links.
+            FluxWatch provides continuous visibility into your third-party ecosystem. It automatically assesses and prioritizes risks across your supply chain, keeping your business secure.
           </p>
         </ScrollReveal>
       </div>

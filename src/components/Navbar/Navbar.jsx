@@ -151,7 +151,7 @@ function Navbar() {
             </button>
             <div className={`mobile-dropdown-content ${mobileDropdowns.products ? 'open' : ''}`}>
               <div className="mobile-rich-list">
-                <div className="mobile-dropdown-section-title">Third-Party Risk Management</div>
+                <div className="mobile-dropdown-section-title"><img src="/fluxnode_black.png" alt="FluxNode" style={{ height: '20px' }} /></div>
                 <Link to="/products/third-party-risk-management/brand-reputation" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
                   <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Building2 size={18} style={{ color: '#0ea5e9' }} /></div>
                   <div className="mobile-rich-text">
@@ -181,7 +181,7 @@ function Navbar() {
                   </div>
                 </Link>
 
-                <div className="mobile-dropdown-section-title" style={{ color: '#f97316', marginTop: '0.5rem' }}>Autonomous Pentesting</div>
+                <div className="mobile-dropdown-section-title" style={{ marginTop: '1rem' }}><img src="/fluxwatch_black.png" alt="FluxWatch" style={{ height: '20px' }} /></div>
                 <Link to="/products/autonomous-pentesting/web-app" onClick={() => setMobileMenuOpen(false)} className="mobile-rich-item">
                   <div style={{ width: '24px', display: 'flex', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}><Globe size={18} style={{ color: '#f97316' }} /></div>
                   <div className="mobile-rich-text">

@@ -18,64 +18,64 @@ import {
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import './ComparisonSection.css';
 
-export const ComparisonSection = () => {
+export const TprmComparisonSection = () => {
   const comparisonData = [
     {
-      capability: "Continuous third-party risk monitoring",
+      capability: "Continuous vendor risk monitoring",
       icon: <Target size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Automated security assessment",
+      capability: "Automated vendor onboarding & assessment",
       icon: <Settings size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Real-time visibility into external exposure",
+      capability: "Real-time third-party exposure visibility",
       icon: <Eye size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Detects vulnerabilities beyond your direct environment",
+      capability: "Dark web & credential leak surveillance",
       icon: <Globe size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Automated penetration testing",
+      capability: "Zero-touch third-party risk scoring",
       icon: <Shield size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Prioritizes risks based on business impact",
+      capability: "Automated business impact prioritization",
       icon: <BarChart size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Centralized third-party security visibility",
+      capability: "Centralized supply chain security dashboard",
       icon: <Network size={18} />,
       fluxvell: true,
       traditional: false
     },
     {
-      capability: "Manual assessment dependency",
+      capability: "Point-in-time questionnaire dependency",
       icon: <User size={18} />,
       fluxvell: false,
       traditional: true
     },
     {
-      capability: "Long assessment cycles",
+      capability: "Long manual assessment cycles",
       icon: <Clock size={18} />,
       fluxvell: false,
       traditional: true
     },
     {
-      capability: "Continuous risk intelligence",
+      capability: "Continuous risk intelligence & alerts",
       icon: <Zap size={18} />,
       fluxvell: true,
       traditional: false
@@ -84,12 +84,11 @@ export const ComparisonSection = () => {
 
   return (
     <section className="comparison-section" id="why-fluxnode">
-      {/* Animated Liquid-Glass Ambient Background */}
       <div className="comparison-inner">
         <ScrollReveal>
           <div className="comparison-title-container">
             <h3 className="why-fluxnode-title-new">
-              Why <span className="fluxnode-red-accent">FluxNode?</span>
+              Why <span className="fluxnode-red-accent">FluxWatch?</span>
             </h3>
           </div>
           <div className="comparison-grid">
@@ -102,9 +101,8 @@ export const ComparisonSection = () => {
               </div>
               <div className="grid-cell header-cell middle-header">
                 <div className="brand-logo-container">
-                  <img src="/fluxnode_black.png" alt="FluxNode" style={{ height: '48px' }} />
+                  <img src="/fluxwatch_black.png" alt="FluxWatch" style={{ height: '48px' }} />
                 </div>
-                <p>CONTINUOUS. AUTOMATED. AHEAD.</p>
               </div>
               <div className="grid-cell header-cell right-header">
                 <div className="traditional-logo-container">
