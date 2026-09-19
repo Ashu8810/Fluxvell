@@ -6,6 +6,57 @@ import {
   Globe, AlertTriangle, Layers, Cpu, Radio, ShieldAlert 
 } from 'lucide-react';
 
+const energyStages = [
+  {
+    num: '01',
+    title: 'Generation / Grid Assets',
+    sub: 'Power Plants / Smart Grid',
+    metric: '124 substations · Secure',
+    desc: 'Autonomous discovery of exposed smart grid components, generation assets, and unauthenticated management interfaces.',
+    icon: Zap
+  },
+  {
+    num: '02',
+    title: 'OT & ICS',
+    sub: 'SCADA / DCS / PLCs',
+    metric: '3,450 devices · 0 drift',
+    desc: 'Continuous mapping of industrial control systems, shadow OT, and legacy unpatched protocols.',
+    icon: Server
+  },
+  {
+    num: '03',
+    title: 'Vendors & Contractors',
+    sub: 'Supply Chain SBOM',
+    metric: '210 vendors · 2 alerts',
+    desc: 'Automated third-party risk management and software bill of materials analysis for equipment providers.',
+    icon: Users
+  },
+  {
+    num: '04',
+    title: 'External Services',
+    sub: 'CDN / DNS / Mail',
+    metric: '12 services · Secure',
+    desc: 'Monitoring edge infrastructure including CDN misconfigurations, DNS zone transfers, and email spoofing risks.',
+    icon: Globe
+  },
+  {
+    num: '05',
+    title: 'Threat Intelligence',
+    sub: 'Dark Web / Leaks',
+    metric: '0 exposed credentials',
+    desc: 'Active monitoring for leaked corporate credentials, specialized OT malware chatter, and targeted threat actor campaigns.',
+    icon: ShieldAlert
+  },
+  {
+    num: '06',
+    title: 'Executive Reporting',
+    sub: 'NERC CIP / Board PDF',
+    metric: 'Real-time compliance mapping',
+    desc: 'Generate executive-ready reports and dashboards for regulatory compliance and stakeholder communication.',
+    icon: FileText
+  }
+];
+
 const EnergySection = () => {
   return (
     <div id="energy">
@@ -97,7 +148,7 @@ const EnergySection = () => {
         </div>
         
         {/* Security Architecture Visual */}
-        <TelemetryPipeline />
+        <TelemetryPipeline stages={energyStages} />
       </section>
 
       {/* CHALLENGES */}

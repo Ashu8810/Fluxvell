@@ -53,16 +53,16 @@ const STAGES = [
   }
 ];
 
-const TelemetryPipeline = () => {
+const TelemetryPipeline = ({ stages = STAGES }) => {
   const [activeStage, setActiveStage] = useState(0);
 
-  const activeData = STAGES[activeStage];
+  const activeData = stages[activeStage];
   const ActiveIcon = activeData.icon;
 
   return (
     <div className="telemetry-pipeline-wrapper">
       <div className="telemetry-pipeline-track">
-        {STAGES.map((stage, index) => (
+        {stages.map((stage, index) => (
           <React.Fragment key={stage.num}>
             <div 
               className={`telemetry-stage-card ${activeStage === index ? 'active' : ''}`}
@@ -72,7 +72,7 @@ const TelemetryPipeline = () => {
               <div className="stage-title">{stage.title}</div>
               <div className="stage-sub">{stage.sub}</div>
             </div>
-            {index < STAGES.length - 1 && (
+            {index < stages.length - 1 && (
               <ArrowRight className="telemetry-arrow" size={16} />
             )}
           </React.Fragment>

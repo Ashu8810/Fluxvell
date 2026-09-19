@@ -20,6 +20,56 @@ import CriticalInfrastructureSection from './CriticalInfrastructureSection';
 import MediaEntertainmentSection from './MediaEntertainmentSection';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
+const technologyStages = [
+  {
+    num: '01',
+    title: 'Cloud Infrastructure',
+    sub: 'AWS / GCP / K8s',
+    metric: '342 nodes monitored · 0 drift',
+    desc: 'Autonomous discovery of cloud assets, unmanaged environments, and containerized workloads from an external attacker perspective.',
+    icon: Cloud
+  },
+  {
+    num: '02',
+    title: 'API & Microservices',
+    sub: 'REST / GraphQL',
+    metric: '1,204 endpoints · 2 unauthenticated',
+    desc: 'Continuous mapping of shadow APIs, stale endpoints, and microservice interconnects.',
+    icon: Globe
+  },
+  {
+    num: '03',
+    title: 'Software Supply Chain',
+    sub: 'SBOM / Dependencies',
+    metric: '43 vendors · 1 critical CVE',
+    desc: 'Automated analysis of third-party vendors, open-source libraries, and software signatures.',
+    icon: LockKeyhole
+  },
+  {
+    num: '04',
+    title: 'CI/CD Pipeline',
+    sub: 'GitHub / Jenkins',
+    metric: '12 pipelines · Secure configurations',
+    desc: 'Monitoring deployment pipelines to detect and prevent production-ready vulnerabilities before they ship.',
+    icon: RefreshCcw
+  },
+  {
+    num: '05',
+    title: 'Threat Intelligence',
+    sub: 'AI-Powered Intel',
+    metric: 'Real-time contextual analysis',
+    desc: 'Real-time threat indicators and contextual machine-learning-assisted security guidelines specific to your tech stack.',
+    icon: Zap
+  },
+  {
+    num: '06',
+    title: 'Executive Reporting',
+    sub: 'Compliance / ISO 27001',
+    metric: 'Automated regulatory matrices',
+    desc: 'Generate executive-ready reports and dashboards for stakeholders and support standard regulatory matrices.',
+    icon: BarChart
+  }
+];
 
 const Industries = () => {
   const { industryId } = useParams();
@@ -232,7 +282,7 @@ const Industries = () => {
               </p>
             </div>
 
-            <TelemetryPipeline />
+            <TelemetryPipeline stages={technologyStages} />
           </section>
 
           {/* OUTCOMES / BENEFITS */}
