@@ -357,6 +357,24 @@ export default function NetworkParticles() {
           ctx.stroke();
         }
 
+        // Draw connection to Central Logo (Core)
+        const dxCore = (width / 2) - n1.x;
+        const dyCore = (height / 2) - n1.y;
+        const distCoreSq = dxCore * dxCore + dyCore * dyCore;
+        const CORE_CONNECT_DISTANCE = 350; // Distance to form lines with the logo
+        if (distCoreSq < CORE_CONNECT_DISTANCE * CORE_CONNECT_DISTANCE) {
+          const distCore = Math.sqrt(distCoreSq);
+          // Only draw lines for nodes outside the logo to prevent drawing over it
+          if (distCore > 100) {
+            const opacity = 1 - (distCore / CORE_CONNECT_DISTANCE);
+            ctx.strokeStyle = `rgba(220, 38, 38, ${opacity * 0.5})`; // Red lines connecting to core
+            ctx.beginPath();
+            ctx.moveTo(n1.x, n1.y);
+            ctx.lineTo(width / 2, height / 2);
+            ctx.stroke();
+          }
+        }
+
         for (let j = i + 1; j < allNodes.length; j++) {
           const n2 = allNodes[j];
           const distSq = (n1.x - n2.x) ** 2 + (n1.y - n2.y) ** 2;
