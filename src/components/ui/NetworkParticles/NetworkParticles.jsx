@@ -12,7 +12,7 @@ const MAJOR_NODES_DATA = [
 
 const NUM_MINOR_NODES = 120;
 const CONNECTION_DISTANCE = 220; // Increased line length
-const RED_THEME = '#dc2626'; // Deep Red
+const BLUE_THEME = '#0ea5e9'; // Cyber Blue
 
 export default function NetworkParticles() {
   const containerRef = useRef(null);
@@ -184,7 +184,7 @@ export default function NetworkParticles() {
         }
       });
       
-      // Collision Resolution for Major Nodes (Red big dots shouldn't overlap)
+      // Collision Resolution for Major Nodes (Blue big dots shouldn't overlap)
       for (let i = 0; i < majorNodes.length; i++) {
         for (let j = i + 1; j < majorNodes.length; j++) {
           const n1 = majorNodes[i];
@@ -350,7 +350,7 @@ export default function NetworkParticles() {
         if (distMouseSq < CONNECTION_DISTANCE ** 2) {
           const distMouse = Math.sqrt(distMouseSq);
           const opacity = 1 - (distMouse / CONNECTION_DISTANCE);
-          ctx.strokeStyle = `rgba(220, 38, 38, ${opacity * 0.6})`;
+          ctx.strokeStyle = `rgba(14, 165, 233, ${opacity * 0.6})`;
           ctx.beginPath();
           ctx.moveTo(n1.x, n1.y);
           ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
@@ -367,7 +367,7 @@ export default function NetworkParticles() {
           // Only draw lines for nodes outside the logo to prevent drawing over it
           if (distCore > 100) {
             const opacity = 1 - (distCore / CORE_CONNECT_DISTANCE);
-            ctx.strokeStyle = `rgba(220, 38, 38, ${opacity * 0.5})`; // Red lines connecting to core
+            ctx.strokeStyle = `rgba(14, 165, 233, ${opacity * 0.5})`; // Blue lines connecting to core
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y);
             ctx.lineTo(width / 2, height / 2);
@@ -383,9 +383,9 @@ export default function NetworkParticles() {
             const dist = Math.sqrt(distSq);
             const opacity = 1 - (dist / CONNECTION_DISTANCE);
             
-            // Deep red lines
+            // Deep blue lines
             const isMajor = n1.id || n2.id;
-            ctx.strokeStyle = isMajor ? `rgba(220, 38, 38, ${opacity * 0.45})` : `rgba(220, 38, 38, ${opacity * 0.15})`;
+            ctx.strokeStyle = isMajor ? `rgba(14, 165, 233, ${opacity * 0.45})` : `rgba(14, 165, 233, ${opacity * 0.15})`;
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y);
             ctx.lineTo(n2.x, n2.y);
@@ -400,7 +400,7 @@ export default function NetworkParticles() {
         
         ctx.beginPath();
         ctx.setLineDash([4, 4]); // Dotted line
-        ctx.strokeStyle = `rgba(220, 38, 38, 0.7)`;
+        ctx.strokeStyle = `rgba(14, 165, 233, 0.7)`;
         ctx.moveTo(node.x, node.y);
         ctx.lineTo(card.x, card.y);
         ctx.stroke();
@@ -411,7 +411,7 @@ export default function NetworkParticles() {
       // Minor nodes
       minorNodes.forEach(node => {
         ctx.beginPath();
-        ctx.fillStyle = `rgba(239, 68, 68, 0.4)`;
+        ctx.fillStyle = `rgba(56, 189, 248, 0.4)`;
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
       });
@@ -420,19 +420,19 @@ export default function NetworkParticles() {
       majorNodes.forEach(node => {
         // Glowing halo
         ctx.beginPath();
-        ctx.fillStyle = `rgba(239, 68, 68, 0.15)`;
+        ctx.fillStyle = `rgba(56, 189, 248, 0.15)`;
         ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
         ctx.fill();
         
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(239, 68, 68, 0.3)`;
+        ctx.strokeStyle = `rgba(56, 189, 248, 0.3)`;
         ctx.lineWidth = 1.5;
         ctx.arc(node.x, node.y, node.radius * 2, 0, Math.PI * 2);
         ctx.stroke();
 
         // Core dot
         ctx.beginPath();
-        ctx.fillStyle = RED_THEME;
+        ctx.fillStyle = BLUE_THEME;
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
       });
