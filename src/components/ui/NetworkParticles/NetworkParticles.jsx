@@ -240,20 +240,44 @@ export default function NetworkParticles() {
         if (card.y < card.height / 2) { card.y = card.height / 2; card.vy *= -0.5; }
         if (card.y > height - card.height / 2) { card.y = height - card.height / 2; card.vy *= -0.5; }
         
-        // Center logo hard boundary for cards
-        const cdx = width / 2 - card.x;
-        const cdy = height / 2 - card.y;
-        const cDistSq = cdx * cdx + cdy * cdy;
-        const centerRadius = 260; // 260px keeps cards well outside the 200px logo radius
-        if (cDistSq < centerRadius * centerRadius && cDistSq > 0) {
-          const cDist = Math.sqrt(cDistSq);
-          const pushX = (cdx / cDist) * (centerRadius - cDist);
-          const pushY = (cdy / cDist) * (centerRadius - cDist);
+        // Rectangular boundary check for cards to avoid the central logo + glow
+        const logoHalfSize = 160; // 100px logo radius + 60px glow padding
+        const cx = width / 2;
+        const cy = height / 2;
+        
+        const cardLeft = card.x - card.width / 2;
+        const cardRight = card.x + card.width / 2;
+        const cardTop = card.y - card.height / 2;
+        const cardBottom = card.y + card.height / 2;
+        
+        const logoLeft = cx - logoHalfSize;
+        const logoRight = cx + logoHalfSize;
+        const logoTop = cy - logoHalfSize;
+        const logoBottom = cy + logoHalfSize;
+        
+        // Check if card bounding box overlaps logo bounding box
+        if (cardLeft < logoRight && cardRight > logoLeft && cardTop < logoBottom && cardBottom > logoTop) {
+          // Determine the shortest path out
+          const pushRight = logoRight - cardLeft;
+          const pushLeft = cardRight - logoLeft;
+          const pushBottom = logoBottom - cardTop;
+          const pushTop = cardBottom - logoTop;
           
-          card.x -= pushX;
-          card.y -= pushY;
-          card.vx *= -0.5;
-          card.vy *= -0.5;
+          const minPush = Math.min(pushRight, pushLeft, pushBottom, pushTop);
+          
+          if (minPush === pushRight) {
+            card.x += pushRight;
+            card.vx = Math.max(0, card.vx * 0.5); // dampen velocity
+          } else if (minPush === pushLeft) {
+            card.x -= pushLeft;
+            card.vx = Math.min(0, card.vx * 0.5);
+          } else if (minPush === pushBottom) {
+            card.y += pushBottom;
+            card.vy = Math.max(0, card.vy * 0.5);
+          } else if (minPush === pushTop) {
+            card.y -= pushTop;
+            card.vy = Math.min(0, card.vy * 0.5);
+          }
         }
       });
       
