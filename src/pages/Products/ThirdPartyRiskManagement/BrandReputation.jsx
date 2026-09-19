@@ -254,7 +254,7 @@ export default function BrandReputation() {
             <div style={{ position: 'relative' }}>
               <div style={{ width: '100%', height: '400px', background: 'linear-gradient(135deg, #f8fafc, #e2e8f0)', borderRadius: '16px', border: '1px solid #cbd5e1', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', width: '200%', height: '200%', background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 60%)' }}></div>
-                <Cpu size={80} color="#64748b" style={{ opacity: 0.5 }} />
+                <img src="/ai_precision.jpg" alt="AI-Assisted Precision" style={{ width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }} />
               </div>
             </div>
           </div>

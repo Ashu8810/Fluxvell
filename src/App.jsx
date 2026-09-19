@@ -30,8 +30,7 @@ import './App.css';
 function App() {
   const location = useLocation();
   const isCreateNewPage = location.pathname === '/create-new';
-  const isPartnersPage = location.pathname === '/partners';
-  const hideNavbar = isCreateNewPage || isPartnersPage;
+  const hideNavbar = isCreateNewPage;
 
   return (
     <div className="app-container">

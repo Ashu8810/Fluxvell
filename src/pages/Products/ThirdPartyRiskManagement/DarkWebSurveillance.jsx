@@ -183,7 +183,7 @@ export default function DarkWebSurveillance() {
               </div>
               <div style={{ position: 'relative', width: '100%', height: '350px', background: '#0a0a0a', borderRadius: '16px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #1e293b' }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(45deg, rgba(14, 165, 233, 0.2) 0%, transparent 100%)' }}></div>
-                <Activity size={80} color="#0ea5e9" style={{ opacity: 0.5 }} />
+                <img src="/alerts_action.jpg" alt="Moving from Alerts to Action Workflow" style={{ width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }} />
               </div>
             </div>
           </div>
