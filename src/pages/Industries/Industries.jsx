@@ -225,21 +225,6 @@ const Industries = () => {
           {/* CONTINUOUS TELEMETRY FLOW */}
           <section className="ind-section" style={{ padding: '4rem 0' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <div style={{ 
-                display: 'inline-block', 
-                fontSize: '0.75rem', 
-                fontWeight: '700', 
-                letterSpacing: '0.1em', 
-                color: '#ef4444', 
-                background: 'rgba(239, 68, 68, 0.1)', 
-                padding: '0.4rem 1rem', 
-                borderRadius: '20px', 
-                textTransform: 'uppercase',
-                border: '1px solid rgba(239, 68, 68, 0.2)',
-                marginBottom: '1rem'
-              }}>
-                Continuous Pipeline
-              </div>
               <h2 className="ind-heading-2">Continuous Telemetry Flow</h2>
               <p className="ind-text-body" style={{ maxWidth: '600px', margin: '0 auto' }}>
                 Autonomous ingestion, analysis, and escalation across your entire external digital perimeter. Click any stage to inspect live telemetry.

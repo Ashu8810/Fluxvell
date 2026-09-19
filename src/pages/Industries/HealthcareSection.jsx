@@ -101,20 +101,63 @@ const HealthcareSection = () => {
         </div>
         
         {/* Security Architecture Visual */}
-        <div className="tech-flow-container" style={{marginTop: '6rem'}}>
-          <div className="tech-flow-node">Patient Records</div>
-          <ArrowRight color="#38bdf8" />
-          <div className="tech-flow-node">EHR Systems</div>
-          <ArrowRight color="#38bdf8" />
-          <div className="tech-flow-node">Connected Devices</div>
-          <ArrowRight color="#38bdf8" />
-          <div className="tech-flow-node">Healthcare APIs</div>
-          <ArrowRight color="#38bdf8" />
-          <div className="tech-flow-node">Infrastructure</div>
-          <ArrowRight color="#38bdf8" />
-          <div className="tech-flow-node">Threat Intelligence</div>
-          <ArrowRight color="#38bdf8" />
-          <div className="tech-flow-node" style={{background: 'rgba(255, 255, 255, 0.8)', borderColor: '#8b5cf6'}}>Executive Reporting</div>
+        <div className="telemetry-pipeline-wrapper">
+          <div className="telemetry-pipeline-track">
+            <div className="telemetry-stage-card active">
+              <div className="stage-num">01</div>
+              <div className="stage-title">Cloud Assets</div>
+              <div className="stage-sub">AWS / GCP / K8s</div>
+            </div>
+            <ArrowRight className="telemetry-arrow" size={16} />
+            
+            <div className="telemetry-stage-card">
+              <div className="stage-num">02</div>
+              <div className="stage-title">APIs</div>
+              <div className="stage-sub">REST / GraphQL</div>
+            </div>
+            <ArrowRight className="telemetry-arrow" size={16} />
+
+            <div className="telemetry-stage-card">
+              <div className="stage-num">03</div>
+              <div className="stage-title">Applications</div>
+              <div className="stage-sub">Web & Microservices</div>
+            </div>
+            <ArrowRight className="telemetry-arrow" size={16} />
+
+            <div className="telemetry-stage-card">
+              <div className="stage-num">04</div>
+              <div className="stage-title">External Services</div>
+              <div className="stage-sub">CDN / DNS / Mail</div>
+            </div>
+            <ArrowRight className="telemetry-arrow" size={16} />
+
+            <div className="telemetry-stage-card">
+              <div className="stage-num">05</div>
+              <div className="stage-title">Vendors</div>
+              <div className="stage-sub">Supply Chain SBOM</div>
+            </div>
+            <ArrowRight className="telemetry-arrow" size={16} />
+
+            <div className="telemetry-stage-card">
+              <div className="stage-num">06</div>
+              <div className="stage-title">Executive Reporting</div>
+              <div className="stage-sub">CISO / Board PDF</div>
+            </div>
+          </div>
+
+          <div className="telemetry-active-details">
+            <div className="details-left">
+              <span className="details-badge">STAGE 01</span>
+              <span className="details-title">Cloud Assets</span>
+            </div>
+            <div className="details-right">
+              <Activity size={16} color="#38bdf8" />
+              <span>342 nodes monitored &middot; 0 drift</span>
+            </div>
+            <div className="details-desc">
+              Autonomous discovery of IP ranges, DNS entries, and cloud workloads from an external attacker perspective.
+            </div>
+          </div>
         </div>
       </section>
 
