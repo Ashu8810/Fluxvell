@@ -222,20 +222,87 @@ const Industries = () => {
             </div>
           </section>
 
-          {/* EXTERNAL VISIBILITY FLOW */}
-          <section className="ind-section">
-            <div className="tech-flow-container">
-              <div className="tech-flow-node">Cloud Assets</div>
-              <ArrowRight color="#38bdf8" />
-              <div className="tech-flow-node">APIs</div>
-              <ArrowRight color="#38bdf8" />
-              <div className="tech-flow-node">Applications</div>
-              <ArrowRight color="#38bdf8" />
-              <div className="tech-flow-node">External Services</div>
-              <ArrowRight color="#38bdf8" />
-              <div className="tech-flow-node">Vendors</div>
-              <ArrowRight color="#38bdf8" />
-              <div className="tech-flow-node" style={{background: 'rgba(255, 255, 255, 0.8)', borderColor: '#8b5cf6'}}>Executive Reporting</div>
+          {/* CONTINUOUS TELEMETRY FLOW */}
+          <section className="ind-section" style={{ padding: '4rem 0' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div style={{ 
+                display: 'inline-block', 
+                fontSize: '0.75rem', 
+                fontWeight: '700', 
+                letterSpacing: '0.1em', 
+                color: '#ef4444', 
+                background: 'rgba(239, 68, 68, 0.1)', 
+                padding: '0.4rem 1rem', 
+                borderRadius: '20px', 
+                textTransform: 'uppercase',
+                border: '1px solid rgba(239, 68, 68, 0.2)',
+                marginBottom: '1rem'
+              }}>
+                Continuous Pipeline
+              </div>
+              <h2 className="ind-heading-2">Continuous Telemetry Flow</h2>
+              <p className="ind-text-body" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                Autonomous ingestion, analysis, and escalation across your entire external digital perimeter. Click any stage to inspect live telemetry.
+              </p>
+            </div>
+
+            <div className="telemetry-pipeline-wrapper">
+              <div className="telemetry-pipeline-track">
+                <div className="telemetry-stage-card active">
+                  <div className="stage-num">01</div>
+                  <div className="stage-title">Cloud Assets</div>
+                  <div className="stage-sub">AWS / GCP / K8s</div>
+                </div>
+                <ArrowRight className="telemetry-arrow" size={16} />
+                
+                <div className="telemetry-stage-card">
+                  <div className="stage-num">02</div>
+                  <div className="stage-title">APIs</div>
+                  <div className="stage-sub">REST / GraphQL</div>
+                </div>
+                <ArrowRight className="telemetry-arrow" size={16} />
+
+                <div className="telemetry-stage-card">
+                  <div className="stage-num">03</div>
+                  <div className="stage-title">Applications</div>
+                  <div className="stage-sub">Web & Microservices</div>
+                </div>
+                <ArrowRight className="telemetry-arrow" size={16} />
+
+                <div className="telemetry-stage-card">
+                  <div className="stage-num">04</div>
+                  <div className="stage-title">External Services</div>
+                  <div className="stage-sub">CDN / DNS / Mail</div>
+                </div>
+                <ArrowRight className="telemetry-arrow" size={16} />
+
+                <div className="telemetry-stage-card">
+                  <div className="stage-num">05</div>
+                  <div className="stage-title">Vendors</div>
+                  <div className="stage-sub">Supply Chain SBOM</div>
+                </div>
+                <ArrowRight className="telemetry-arrow" size={16} />
+
+                <div className="telemetry-stage-card">
+                  <div className="stage-num">06</div>
+                  <div className="stage-title">Executive Reporting</div>
+                  <div className="stage-sub">CISO / Board PDF</div>
+                </div>
+              </div>
+
+              <div className="telemetry-active-details">
+                <div className="details-left">
+                  <span className="details-badge">STAGE 01</span>
+                  <span className="details-title">Cloud Assets</span>
+                </div>
+                <div className="details-right">
+                  <Activity size={16} color="#38bdf8" />
+                  <span>342 nodes monitored &middot; 0 drift</span>
+                </div>
+                <div className="details-desc">
+                  Autonomous discovery of IP ranges, DNS entries, and cloud workloads from an external attacker perspective.
+                </div>
+              </div>
             </div>
           </section>
 
