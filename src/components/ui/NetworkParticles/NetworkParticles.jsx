@@ -167,19 +167,20 @@ export default function NetworkParticles() {
         if (node.y < margin) node.vy += 0.05;
         if (node.y > height - margin) node.vy -= 0.05;
         
-        // Center logo repel
+        // Center logo hard boundary
         const cdx = width / 2 - node.x;
         const cdy = height / 2 - node.y;
         const cDistSq = cdx * cdx + cdy * cdy;
-        const centerRadius = 180; // Larger avoidance for major nodes
-        if (cDistSq < centerRadius * centerRadius) {
+        const centerRadius = 180; // Hard boundary for major nodes
+        if (cDistSq < centerRadius * centerRadius && cDistSq > 0) {
           const cDist = Math.sqrt(cDistSq);
-          const forceDirectionX = cdx / cDist;
-          const forceDirectionY = cdy / cDist;
-          const force = (centerRadius - cDist) / centerRadius;
+          const pushX = (cdx / cDist) * (centerRadius - cDist);
+          const pushY = (cdy / cDist) * (centerRadius - cDist);
           
-          node.vx -= forceDirectionX * force * 0.8;
-          node.vy -= forceDirectionY * force * 0.8;
+          node.x -= pushX;
+          node.y -= pushY;
+          node.vx *= -0.5;
+          node.vy *= -0.5;
         }
       });
       
@@ -239,19 +240,20 @@ export default function NetworkParticles() {
         if (card.y < card.height / 2) { card.y = card.height / 2; card.vy *= -0.5; }
         if (card.y > height - card.height / 2) { card.y = height - card.height / 2; card.vy *= -0.5; }
         
-        // Center logo repel for cards
+        // Center logo hard boundary for cards
         const cdx = width / 2 - card.x;
         const cdy = height / 2 - card.y;
         const cDistSq = cdx * cdx + cdy * cdy;
-        const centerRadius = 200; // Larger avoidance for cards
-        if (cDistSq < centerRadius * centerRadius) {
+        const centerRadius = 260; // 260px keeps cards well outside the 200px logo radius
+        if (cDistSq < centerRadius * centerRadius && cDistSq > 0) {
           const cDist = Math.sqrt(cDistSq);
-          const forceDirectionX = cdx / cDist;
-          const forceDirectionY = cdy / cDist;
-          const force = (centerRadius - cDist) / centerRadius;
+          const pushX = (cdx / cDist) * (centerRadius - cDist);
+          const pushY = (cdy / cDist) * (centerRadius - cDist);
           
-          card.vx -= forceDirectionX * force * 2;
-          card.vy -= forceDirectionY * force * 2;
+          card.x -= pushX;
+          card.y -= pushY;
+          card.vx *= -0.5;
+          card.vy *= -0.5;
         }
       });
       
