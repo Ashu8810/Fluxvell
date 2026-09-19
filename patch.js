@@ -1,71 +1,24 @@
 const fs = require('fs');
+const file = 'src/components/ui/NetworkParticles/NetworkParticles.jsx';
+let content = fs.readFileSync(file, 'utf8');
 
-let content = fs.readFileSync('src/components/ui/AnimatedNetwork.jsx', 'utf8');
-
-const replacement = `
-        const gridX = offsetX + totalPanX;
-        const gridY = offsetY + totalPanY;
-
-        // Calculate original flat distance from center
-        const dist = Math.hypot(gridX, gridY);
-        
-        let scale = 1;
-        let opacity = 1;
-        let finalX = 0;
-        let finalY = 0;
-
-        // Apple Watch style spherical projection
-        const maxDist = 350; // Radius of the visual sphere
-        
-        if (dist === 0) {
-          scale = 1;
-          finalX = 0;
-          finalY = 0;
-        } else if (dist < maxDist) {
-          const theta = (dist / maxDist) * (Math.PI / 2);
-          
-          // scale is derivative of projected distance so nodes stay perfectly touching!
-          scale = Math.cos(theta);
-          
-          // The projected distance ensures gaps shrink exactly proportionally to the scale
-          const projectedDist = (maxDist / (Math.PI / 2)) * Math.sin(theta);
-          
-          finalX = (gridX / dist) * projectedDist;
-          finalY = (gridY / dist) * projectedDist;
-          
-          // Fade out smoothly at the edge
-          opacity = 1 - Math.pow(dist / maxDist, 4);
-        } else {
-          scale = 0;
-          opacity = 0;
-          const projectedDist = (maxDist / (Math.PI / 2));
-          finalX = (gridX / dist) * projectedDist;
-          finalY = (gridY / dist) * projectedDist;
-        }
-
-        finalX += baseX;
-        finalY += baseY;
-
-        el.style.transform = \\\`translate(\\\${finalX}px, \\\${finalY}px) translate(-50%, -50%) scale(\\\${scale})\\\`;
-        el.style.opacity = opacity;
-        el.style.zIndex = Math.round(scale * 100);
-`;
-
-content = content.replace(/const totalPanX = panOffset\.current\.x \+ idleX;[\s\S]*?(?=el\.style\.transform =)/, 
-`const totalPanX = panOffset.current.x + idleX;
-      const totalPanY = panOffset.current.y + idleY;
-
-      const baseX = 500; 
-      const baseY = 340; 
-
-      nodesRef.current.forEach((el, index) => {
-        if (!el) return;
-        const node = allNodes[index];
-        
-        const offsetX = D * (node.q + node.r / 2);
-        const offsetY = h * node.r;
-
-${replacement}`
+// Inject a debug text div to see the cards array length and positions
+content = content.replace(
+  '<canvas ref={canvasRef} className="network-particles-canvas" />',
+  `<canvas ref={canvasRef} className="network-particles-canvas" />
+       <div id="debug-info" style={{position: 'absolute', top: 10, left: 10, zIndex: 1000, color: 'lime', background: 'black', padding: '10px'}}>Debug</div>`
 );
 
-fs.writeFileSync('src/components/ui/AnimatedNetwork.jsx', content);
+content = content.replace(
+  'el.style.transform = `translate(${cards[i].x}px, ${cards[i].y}px) translate(-50%, -50%)`;',
+  `el.style.transform = \`translate(\${cards[i].x}px, \${cards[i].y}px) translate(-50%, -50%)\`;
+          if (i===0) {
+             const dbg = document.getElementById('debug-info');
+             if (dbg) {
+               dbg.innerHTML = cards.map((c, idx) => \`\${idx}: x=\${Math.round(c.x)} y=\${Math.round(c.y)} w=\${c.width}\`).join('<br/>') + '<br/>Refs: ' + cardsRef.current.map(e => e ? 'OK' : 'NULL').join(',');
+             }
+          }`
+);
+
+fs.writeFileSync(file, content);
+console.log("Patched!");

@@ -11,7 +11,8 @@ export function ProductsMenu() {
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
         
         {/* FluxNode Dropdown Item */}
-        <div 
+        <Link 
+          to="/products/third-party-risk-management"
           style={{ 
             flex: 1, 
             padding: '1.5rem', 
@@ -25,12 +26,14 @@ export function ProductsMenu() {
             transition: 'all 0.2s'
           }}
           onMouseEnter={() => setActiveSubmenu('fluxnode')}
+          onClick={() => setActiveSubmenu(null)}
         >
           <img src="/fluxnode_black.png" alt="FluxNode" style={{ height: '44px' }} />
-        </div>
+        </Link>
 
         {/* FluxWatch Dropdown Item */}
-        <div 
+        <Link 
+          to="/products/autonomous-pentesting"
           style={{ 
             flex: 1, 
             padding: '1.5rem', 
@@ -44,9 +47,10 @@ export function ProductsMenu() {
             transition: 'all 0.2s'
           }}
           onMouseEnter={() => setActiveSubmenu('fluxwatch')}
+          onClick={() => setActiveSubmenu(null)}
         >
           <img src="/fluxwatch_black.png" alt="FluxWatch" style={{ height: '44px' }} />
-        </div>
+        </Link>
       </div>
 
       {/* Submenus - show conditionally based on hover state */}

@@ -1,0 +1,87 @@
+.network-particles-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.network-particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.network-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.85); /* Slate 900 with opacity */
+  border: none;
+  padding: 16px 28px;
+  border-radius: 14px;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 20;
+  /* Glow effect */
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+}
+
+.network-card:hover {
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.15); /* Red tinted shadow */
+}
+
+.network-card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #60a5fa; /* Default blue for icons */
+}
+
+.network-card[data-category="brand-reputation"] .network-card-icon { color: #00f2fe; }
+.network-card[data-category="operational-risk"] .network-card-icon { color: #38bdf8; }
+.network-card[data-category="dark-web"] .network-card-icon { color: #60a5fa; }
+.network-card[data-category="cyber-insurance"] .network-card-icon { color: #22d3ee; }
+
+.network-center-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background-color: #050505; /* Deep dark circle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 0 100px rgba(220, 38, 38, 0.25), 0 0 40px rgba(220, 38, 38, 0.15); /* Red glowing halo */
+  border: 1px solid rgba(220, 38, 38, 0.1);
+  pointer-events: none;
+}
+
+.network-center-logo img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(220, 38, 38, 0.6));
+}

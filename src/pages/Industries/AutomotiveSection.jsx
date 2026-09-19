@@ -1,4 +1,5 @@
 import React from 'react';
+import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 import { 
   Zap, Server, ShieldCheck, Activity, Users, FileText, 
   Globe, AlertTriangle, Layers, Cpu, Radio, ShieldAlert,
@@ -9,8 +10,9 @@ const AutomotiveSection = () => {
   return (
     <div id="automotive">
       {/* HERO SECTION */}
-      <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)'}}>
-        <div style={{maxWidth: '800px', margin: '0 auto'}}>
+      <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative', overflow: 'hidden'}}>
+        <NetworkParticles />
+        <div style={{maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 10}}>
                     <h1 className="ind-heading-1" style={{background: 'none', WebkitTextFillColor: '#ffffff', color: '#ffffff'}}>Cyber Security for Automotive.</h1>
           <p className="ind-text-lead" style={{color: '#94a3b8'}}>
             AI-driven visibility into automotive external attack surfaces. Secure connected vehicles, manufacturing systems, and supply chain with comprehensive cyber security.

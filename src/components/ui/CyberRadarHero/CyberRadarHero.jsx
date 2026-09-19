@@ -231,7 +231,8 @@ export function CyberRadarHero({
   showLogos = true,
   theme = "blue",
   bgImage = null,
-  hideRadar = false
+  hideRadar = false,
+  rightSideElement = null
 }) {
   const navigate = useNavigate();
   const planets = customPlanets || nodes || DEFAULT_PLANETS;
@@ -309,8 +310,10 @@ export function CyberRadarHero({
           </div>
         </div>
 
-        {/* RIGHT COLUMN: The Interactive Solar System */}
-        {!hideRadar && (
+        {/* RIGHT COLUMN: The Interactive Solar System or Custom Element */}
+        {rightSideElement ? (
+          rightSideElement
+        ) : !hideRadar ? (
           <div className="cyber-radar-stage-wrapper">
             <div className="cyber-radar-viewport">
               {/* Concentric Solar Orbit Rings for each planet */}
@@ -528,7 +531,7 @@ export function CyberRadarHero({
             <div className="cyber-radar-tagline-line" />
           </div>
         </div>
-        )}
+        ) : null}
       </div>
 
       {/* BOTTOM BAR: Trusted Enterprise Logos & Scroll */}

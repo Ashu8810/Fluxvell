@@ -7,13 +7,15 @@ import {
   Smartphone, Monitor, Truck
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 
 const RetailSection = () => {
   return (
     <div id="retail">
       {/* HERO SECTION */}
-      <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)'}}>
-        <div style={{maxWidth: '800px', margin: '0 auto'}}>
+      <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative', overflow: 'hidden'}}>
+        <NetworkParticles />
+        <div style={{maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 10}}>
                     <h1 className="ind-heading-1" style={{background: 'none', WebkitTextFillColor: '#ffffff', color: '#ffffff'}}>Cyber Security for Modern Retail.</h1>
           <p className="ind-text-lead" style={{color: '#94a3b8'}}>
             Monitor retail risks across domains, apps, and vendors. Protect customer data, secure payment gateways, and ensure uninterrupted checkout experiences.

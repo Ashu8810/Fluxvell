@@ -1,4 +1,5 @@
 import React from 'react';
+import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 import { 
   Building2, Users, Network, ShieldCheck, Activity, FileText, 
   ArrowRight, Globe, Lock, CheckCircle, Database, Eye, Server, Cpu
@@ -8,7 +9,7 @@ const CriticalInfrastructureSection = () => {
   return (
     <div id="critical-infrastructure">
       {/* HERO SECTION */}
-      <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)'}}>
+      <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative', overflow: 'hidden'}}>
         <div style={{maxWidth: '800px', margin: '0 auto', position: 'relative'}}>
           <h1 className="ind-heading-1" style={{background: 'none', WebkitTextFillColor: '#ffffff', color: '#ffffff'}}>Cyber Security for Critical Infrastructure.</h1>
           <p className="ind-text-lead" style={{color: '#94a3b8'}}>

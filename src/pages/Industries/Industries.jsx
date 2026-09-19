@@ -18,6 +18,7 @@ import TelecomSection from './TelecomSection';
 import CriticalInfrastructureSection from './CriticalInfrastructureSection';
 import MediaEntertainmentSection from './MediaEntertainmentSection';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
+import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 
 const Industries = () => {
   const { industryId } = useParams();
@@ -44,8 +45,9 @@ const Industries = () => {
         return (
           <div id="technology" style={{paddingTop: '2rem'}}>
           
-          <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)'}}>
-            <div style={{maxWidth: '800px', margin: '0 auto'}}>
+          <section className="tech-hero" style={{background: '#0f172a', borderRadius: '32px', padding: '4rem 2rem', marginTop: '6rem', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative', overflow: 'hidden'}}>
+            <NetworkParticles />
+        <div style={{maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 10}}>
                         <h1 className="ind-heading-1" style={{background: 'none', WebkitTextFillColor: '#ffffff', color: '#ffffff'}}>Real-time visibility into external threats and exposures.</h1>
               <p className="ind-text-lead" style={{color: '#94a3b8'}}>
                 Fluxvell protects technology infrastructure, intellectual property, and digital assets through continuous monitoring and AI-powered threat intelligence.

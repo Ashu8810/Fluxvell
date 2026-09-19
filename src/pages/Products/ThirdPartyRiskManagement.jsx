@@ -7,6 +7,7 @@ import {
 import './ThirdPartyRiskManagement.css';
 import CyberRadarHero from '../../components/ui/CyberRadarHero/CyberRadarHero';
 import ThirdPartyRiskManagementTimeline from '../../components/ui/Timeline/ThirdPartyRiskManagementTimeline';
+import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 
 export default function ThirdPartyRiskManagement() {
   const { sectionId } = useParams();
@@ -41,6 +42,11 @@ export default function ThirdPartyRiskManagement() {
         showLogos={false}
         bgImage="/Fluxvell_tprm.png"
         hideRadar={true}
+        rightSideElement={
+          <div className="cyber-radar-stage-wrapper">
+            <NetworkParticles />
+          </div>
+        }
       />
 
       <div className="vrm-content-wrapper">
