@@ -1,7 +1,7 @@
 import React from 'react';
+import TelemetryPipeline from './TelemetryPipeline';
 import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 import { 
-import TelemetryPipeline from './TelemetryPipeline';
   Zap, Server, ShieldCheck, Activity, Users, FileText, 
   Globe, AlertTriangle, Layers, Cpu, Radio, ShieldAlert 
 } from 'lucide-react';

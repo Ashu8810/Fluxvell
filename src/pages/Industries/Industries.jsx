@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import TelemetryPipeline from './TelemetryPipeline';
 import { useLocation, useParams, Navigate } from 'react-router-dom';
 import { 
   ShieldCheck, AlertTriangle, Cloud, Lock, Eye, CheckCircle, 
@@ -19,7 +20,6 @@ import CriticalInfrastructureSection from './CriticalInfrastructureSection';
 import MediaEntertainmentSection from './MediaEntertainmentSection';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
 import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
-import TelemetryPipeline from './TelemetryPipeline';
 
 const Industries = () => {
   const { industryId } = useParams();

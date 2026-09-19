@@ -1,7 +1,7 @@
 import React from 'react';
+import TelemetryPipeline from './TelemetryPipeline';
 import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
 import { 
-import TelemetryPipeline from './TelemetryPipeline';
   Building2, Users, Network, ShieldCheck, Activity, FileText, 
   ArrowRight, Globe, Lock, CheckCircle, Database, Eye, Server, Cpu,
   AlertTriangle

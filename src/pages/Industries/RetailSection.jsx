@@ -1,4 +1,5 @@
 import React from 'react';
+import TelemetryPipeline from './TelemetryPipeline';
 import { 
   ShieldCheck, Activity, Users, FileText, 
   Globe, AlertTriangle, Layers, Cpu, Lock, 
@@ -8,7 +9,6 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NetworkParticles from '../../components/ui/NetworkParticles/NetworkParticles';
-import TelemetryPipeline from './TelemetryPipeline';
 
 const RetailSection = () => {
   return (
